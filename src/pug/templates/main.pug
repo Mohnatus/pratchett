@@ -1,0 +1,23 @@
+include ../configs/config.pug
+include ../elements/head.pug
+include ../elements/bitrixAuth.pug
+
+-var projectName = 'pratchett';
+-var imgUrl = mediaFolder + projectName + '/';
+
+if mode === "production"
+  +bitrixHeader
+doctype html
+html(lang="ru")
+  head
+    block topHead
+    +head
+    block bottomHead
+  body
+    block topBody
+    if mode === "production"
+      +bitrixAuth
+    block content
+    if mode === "production"
+      +bitrixAuthScripts
+    block bottomBody

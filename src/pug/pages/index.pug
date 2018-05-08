@@ -1,0 +1,25 @@
+extend ../templates/main.pug
+
+include ../landing/header.pug
+include ../pratchett/header.pug
+
+block topHead
+	-var styleFile = "style.css"
+	-var title = "Page title"
+	-var description = "..description"
+
+block bottomHead
+
+block topBody
+
+block content
+	.landing.pratchett
+		+landingHeader({class: 'white'}, {type: 'social'})
+		main
+			+pratchettHeader
+
+block bottomBody
+
+
+
+		

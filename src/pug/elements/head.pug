@@ -1,0 +1,10 @@
+include bitrixAuth
+
+mixin head
+  meta(charset=charset ? charset : 'utf-8')
+  meta(name="viewport", content="width=" + metaWidth ? metaWidth : 1200 + ", initial-scale=1.0")
+  meta(http-equiv="X-UA-Compatible" content="ie=edge")
+  title= title ? title : "Page title"
+  meta(name="description" content=description ? description : "Page description")
+  link(rel="stylesheet", href=cssFolder + styleFile)
+

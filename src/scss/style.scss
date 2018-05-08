@@ -1,0 +1,17 @@
+@import './vars.scss';
+
+$headerFontFamily: $PTSansFont;
+$footerFontFamily: $PTSansFont;
+$mainFontFamily: $PTSansFont;
+$buttonFontFamily: $PTSansFont;
+
+$headerBackground: $darkViolet;
+$headerColor: white;
+
+$mainFontSize: $fs4;
+
+
+@import './mixins.scss';
+@import 'landing/main.scss';
+
+

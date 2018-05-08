@@ -1,0 +1,18 @@
+.landing{
+  &-halfs {
+    display: flex; width: 100%;
+  }
+  
+  &-half {
+    width: 50%;
+    display: flex;
+
+    &_left {
+      justify-content: flex-end;
+    }
+    &_right {
+      justify-content: flex-start;
+    }
+    
+  }
+}

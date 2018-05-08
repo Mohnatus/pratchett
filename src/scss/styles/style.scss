@@ -1,0 +1,21 @@
+@import '../vars.scss';
+
+$projectName: 'pratchett';
+$imgUrl: $mediaFolder + $projectName + '/';
+
+$headerFontFamily: $PTSansFont;
+$footerFontFamily: $PTSansFont;
+$mainFontFamily: $PTSansFont;
+$buttonFontFamily: $PTSansFont;
+
+$headerBackground: $darkViolet;
+$headerColor: white;
+$headerShadow: none;
+
+$mainFontSize: $fs4;
+
+
+@import '../vars/mixins.scss';
+@import '../helpers.scss';
+@import '../landing/main.scss';
+@import '../pratchett/style.scss';

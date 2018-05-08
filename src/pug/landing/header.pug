@@ -1,0 +1,14 @@
+mixin landingHeader(logo, menu)
+  include logo.pug
+  include social.pug
+  include menu.pug
+
+  header.landing-header
+    .container
+      +logo(logo)
+      if menu.type == 'social'
+        .landing-header__menu
+          +socialList
+      else
+        .landing-header__menu
+          +customMenu(menu, 'header-menu')

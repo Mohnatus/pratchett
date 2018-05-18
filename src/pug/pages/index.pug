@@ -2,11 +2,14 @@ extend ../templates/main.pug
 
 include ../landing/header.pug
 include ../pratchett/header.pug
+include ../pratchett/scheme.pug
 
 block topHead
 	-var styleFile = "style.css"
 	-var title = "Page title"
 	-var description = "..description"
+
+	include ../pratchett/cycles.pug
 
 block bottomHead
 
@@ -17,6 +20,7 @@ block content
 		+landingHeader({class: 'white'}, {type: 'social'})
 		main
 			+pratchettHeader
+			+pratchettScheme
 
 block bottomBody
 

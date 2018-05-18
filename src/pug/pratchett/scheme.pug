@@ -1,0 +1,12 @@
+mixin pratchettScheme
+  .pratchett-scheme
+    .cycles
+      each column, index in columns
+        .cycles__column(data-column=index+1)
+          each cycle, cycleindex in column
+            .cycle(data-cycle=cycle.id data-column-index=cycleindex+1)
+              if cycle.books
+                each book, index in cycle.books
+                  .book(data-index=index+1 data-lines=book.lines)
+                    .book__title !{book.title}
+                    .book__year !{book.year}

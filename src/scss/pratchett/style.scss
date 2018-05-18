@@ -1,1 +1,115 @@
+$blueCycle: #3F8CFF;
+$orangeCycle: #E87522;
+$pinkCycle: #E34893;
+$aquaCycle: #18B5AC;
+$redCycle: #EB5757;
+$violetCycle: #7864C6;
+$fuchsiaCycle: #ED1F6F;
+$greenCycle: #219653;
+$darkCycle: #4F0954;
+
+$cyclesColors: (
+  blue: $blueCycle,
+  orange: $orangeCycle,
+  pink: $pinkCycle,
+  aqua: $aquaCycle,
+  red: $redCycle,
+  violet: $violetCycle,
+  fuchsia: $fuchsiaCycle,
+  green: $greenCycle,
+  dark: $darkCycle
+);
+
+$flagsPositions: (
+  blue: (
+    1: (325px, 17px),
+    2: (282px, 43px),
+    3: (349px, 42px),
+    4: (331px, 77px),
+    5: (291px, 71px),
+    6: (243px, 77px),
+    7: (252px, 112px),
+    8: (301px, 160px),
+    9: (222px, 181px)
+  ),
+  green: (
+    1: (397px, 52px),
+    2: (412px, 79px),
+    3: (442px, 100px),
+    4: (464px, 119px),
+    5: (473px, 147px),
+    6: (414px, 174px)
+  ),
+  orange: (
+    1: (463px, -5px),
+    2: (505px, 5px),
+    3: (542px, 11px),
+    4: (509px, 73px),
+    5: (489px, 33px)
+  ),
+  pink: (
+    1: (589px, 36px),
+    2: (602px, 80px),
+    3: (621px, 121px),
+    4: (649px, 155px),
+    5: (579px, 166px),
+    6: (670px, 209px),
+  ),
+  aqua: (
+    1: (293px, 368px),
+    2: (327px, 407px)
+  ),
+  red: (
+    1: (487px, 247px),
+    2: (434px, 256px)
+  ),
+  violet: (
+    1: (463px, 413px),
+    2: (425px, 420px),
+    3: (453px, 439px),
+    4: (395px, 442px),
+    5: (366px, 461px),
+    6: (326px, 481px),
+    7: (319px, 505px),
+    8: (417px, 531px)
+  ),
+  fuchsia: (
+    1: (589px, 395px),
+    2: (532px, 516px)
+  ),
+  dark: (
+    1: (545px, 248px),
+    2: (507px, 401px),
+    3: (568px, 367px)
+  )
+);
+
+$cyclesPositions: (
+  blue: (0px, 0px),
+  green: (183px, 0px)
+);
+
+$cycleWidth: 164px;
+$cyclePaddingTop: 16px;
+$cyclePaddingLeft: 14px;
+$cycleMarginRight: 19px;
+$cycleMarginBottom: 30px;
+$cyclesWidth: 7 * $cycleWidth + 6 * $cycleMarginRight;
+
+$bookWidth: 136px;
+$bookMarginBottom: 15px;
+$book1Height: 67px;
+$book2Height: 83px;
+$book3Height: 112px;
+$book4Height: 135px;
+$book5Height: 148px;
+$violetSpecificMargin: 109px;
+$violetSeparateSpecificMargin: 249px;
+
+body {
+  background: $darkViolet;
+  color: white;
+}
+
 @import 'header.scss';
+@import 'cycles.scss';

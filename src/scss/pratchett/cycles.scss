@@ -1,0 +1,114 @@
+.book {
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+  width: 136px;
+  padding: 8px 21px;
+  text-align: left; line-height: 1.1;
+  border: 2px solid white;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    .cycle-item__title, .cycle-item__year { color: inherit; }
+  }
+
+  &__title {
+    font-size: 16px; font-weight: bold;
+    margin-bottom: 7px;
+  }
+
+  &__date {
+    font-size: 15px;
+  }
+
+  &[data-lines="1"] { height: $book1Height; }
+  &[data-lines="2"] { height: $book2Height; }
+  &[data-lines="3"] { height: $book3Height; }
+  &[data-lines="4"] { height: $book4Height; }
+  &[data-lines="5"] { height: $book5Height; }
+}
+
+.cycles {
+  display: flex; 
+  width: $cyclesWidth;
+  margin-left: auto; margin-right: auto;
+  position: relative;
+
+  &__column {
+    margin-right: $cycleMarginRight;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    &[data-column="3"] {
+      margin-top: $book2Height * 2 + $bookMarginBottom * 2;
+    }
+
+    &[data-column="4"] .book[data-index="3"] {
+      margin-top: $book1Height + $bookMarginBottom * 2;
+    }
+
+    &[data-column="5"] .book[data-index="7"] {
+      margin-top: $violetSpecificMargin;
+    }
+
+    &[data-column="6"] {
+      margin-top: $book2Height * 2 + $book1Height + $bookMarginBottom * 2 + $cyclePaddingTop * 2 + $cycleMarginBottom;
+    }
+
+    &[data-column="6"] .cycle[data-column-index="2"] {
+      margin-top: $violetSeparateSpecificMargin;
+    }
+  }
+}
+
+.cycle {
+  width: $cycleWidth;
+  padding: $cyclePaddingTop $cyclePaddingLeft;
+  border-radius: 22px;
+  position: relative;
+  margin-bottom: $cycleMarginBottom;
+
+  &:before {
+    position: absolute;
+    content: '';
+    top: 20px; bottom: 20px;
+    left: 50%;
+    width: 0;
+    border: 1px solid white;
+    z-index: 0;
+  }
+
+  @each $cycle, $color in $cyclesColors {
+    &[data-cycle="#{$cycle}"] {
+      background: $color;
+      color: $color;
+    }
+  }
+
+  // @each $cycle, $coords in $cyclesPositions {
+  //   &[data-cycle="#{$cycle}"] {
+  //     left: nth($coords, 1);
+  //     top: nth($coords, 2);
+  //   }
+  // }
+
+  .book {
+    position: relative; z-index: 1;
+    margin-bottom: $bookMarginBottom;
+    background: inherit;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    &:hover {
+      color: inherit;
+      background: white;
+      &__title { color: inherit; }
+      &__date { color: inherit; }
+    }
+  }
+
+}
+

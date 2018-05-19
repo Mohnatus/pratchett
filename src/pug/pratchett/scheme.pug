@@ -1,3 +1,20 @@
+mixin map
+  .pratchett-map
+    for column in map
+      .pratchett-map__column
+        if column.title
+          .pratchett-map__title !{column.title}
+        for item in column.items
+          .pratchett-map__item(data-map=item.id) 
+            if item.icon=="science"
+              svg.icon: use(xlink:href="#science-icon")
+            else if item.icon=="star"
+              svg.icon: use(xlink:href="#star-icon")
+            else if item.icon!="none"
+              svg.icon: use(xlink:href="#circle-icon")
+            |!{item.name}
+
+
 mixin pratchettScheme
   .pratchett-scheme
     .cycles
@@ -7,6 +24,15 @@ mixin pratchettScheme
             .cycle(data-cycle=cycle.id data-column-index=cycleindex+1)
               if cycle.books
                 each book, index in cycle.books
-                  .book(data-index=index+1 data-lines=book.lines)
+                  .book(data-index=index+1 data-lines=book.lines data-cycle=cycle.id)
                     .book__title !{book.title}
                     .book__year !{book.year}
+                    if book.relations 
+                      svg.relations
+                        each relation in book.relations
+                          path(d=relation.d class=relation.dash ? "dashed" : "")
+              if cycle.relations
+                svg.relations
+                  each relation in cycle.relations
+                    path(d=relation.d class=relation.dash ? "dashed" : "")
+    +map

@@ -45,7 +45,7 @@
     {
       'title': 'Творцы заклинаний',
       'year': '1987',
-      'lines': 2
+      'lines': 2,
     },{
       'title': 'Вещие сестрички',
       'year': '1988',
@@ -246,22 +246,185 @@
 
   var columns = [
     [ 
-      { id: "blue", books: blueCycle } 
+      { id: "blue", books: blueCycle,
+        relations: [
+          {
+            d: `M82 0L82 291Q82 306 97 306L442 306Q457 306 457 291L457 -263
+            Q457 -278 472 -278L740 -278`,
+            dash: true
+          }      
+        ] 
+      } 
     ],[ 
-      { id: "green", books: greenCycle },
-      { id: "orange", books: orangeCycle }
+      { id: "green", books: greenCycle,
+        'relations': [
+          {
+            d: 'M30 60L-19 60',
+            dash: true,
+          },{
+            d: 'M30 550L-19 550',
+            dash: true,
+          }
+        ]
+      },
+      { id: "orange", books: orangeCycle, 
+        'relations': [
+          {
+            d: 'M82 20L82 -46',
+            dash: true
+          },{
+            d: 'M20 400L-62 400Q-77 400 -77 385L-77 375',
+            dash: true
+          }
+          
+        ]
+      }
     ],[
       { id: "pink", books: pinkSideCycle },
-      { id: "fuchsia", books: fuchsiaCycle }
+      { id: "fuchsia", books: fuchsiaCycle,
+        relations: [
+          {
+            d: 'M20 140L-36 140',
+            dash: true
+          },{
+            d: 'M82 30L82 100',
+            dash: true
+          }
+        ]
+      }
     ],[
-      { id: "pink", books: pinkCycle }
+      { id: "pink", books: pinkCycle, 
+        relations: [
+          {
+            d: 'M20 152L-90 152Q-105 152 -105 167L-105 210',
+            dash: true
+          },{
+            d: 'M20 532L-35 532',
+            dash: true
+          }
+        ]
+      }
     ],[
-      { id: "violet", books: violetCycle }
+      { id: "violet", books: violetCycle, 
+        relations: [
+          {
+            d: "M164 49L500 49",
+            dash: true
+          },{
+            d: "M134 530L200 530Q215 530 215 515L215 451",
+            dash: true
+          }
+        ]
+      }
     ],[
-      { id: "violet", books: violetSideCycleFirst },
-      { id: "violet", books: violetSideCycleSecond }
+      { id: "violet", books: violetSideCycleFirst, 
+        relations: [
+          {
+            d: "M82 50L82 110Q82 125 67 125L-34 125",
+            dash: true
+          },{
+            d: "M82 30L82 -25Q82 -40 97 -40L200 -40",
+            dash: true
+          }
+        ]
+      },
+      { id: "violet", books: violetSideCycleSecond,
+        relations: [
+          {
+            d: 'M20 54L-34 55'
+          }
+        ]
+      }
     ],[
-      { id: "red", books: redCycle },
-      { id: "aqua", books: aquaCycle }
+      { id: "red", books: redCycle, 
+        relations: [
+          {
+            d: 'M82 30L82 250',
+            dash: true
+          }
+        ]
+      },
+      { id: "aqua", books: aquaCycle, 
+        relations: [
+          {
+            d: 'M20 40L-218 40',
+            dash: true
+          },{
+            d: 'M84 250L84 485Q84 500 69 500L-34 500'
+          }
+        ]
+      }
     ]
+  ]
+
+  var map = [
+    {
+      title: 'ПОДЦИКЛЫ',
+      items: [
+        {
+          "id": "blue",
+          "name": "Ринсвинд"
+        },{
+          "id": "green",
+          "name": "Ведьмы"
+        },{
+          "id": "orange",
+          "name": "Тиффани"
+        },{
+          "id": "pink",
+          "name": "Смерть"
+        }
+      ]
+    },{
+      items: [
+        {
+          "id": "fuchsia",
+          "name": "Мелкие Боги"
+        },{
+          "id": "dark",
+          "name": "Монахи истории"
+        },{
+          "id": "violet",
+          "name": "Городская стража"
+        },{
+          "id": "red",
+          "name": "Городские службы"
+        },{
+          "id": "aqua",
+          "name": "Мойст фон Липвиг"
+        }
+      ]
+    },{
+      title: 'КНИГИ',
+      items: [
+        {
+          "id": "start",
+          "name": "Начало цикла"
+        },{
+          "id": "roman",
+          "name": "Роман"
+        },{
+          "id": "picture",
+          "name": "Иллюстрированная книга",
+          "icon": "star"
+        },{
+          "id": "science",
+          "name": "Научный роман",
+          "icon": "science"
+        }
+      ]
+    },{
+      title: 'СЮЖЕТНЫЕ СВЯЗИ',
+      items: [
+        {
+          "id": "direct",
+          "name": "",
+          "icon": "none"
+        },{
+          "id": "indirect",
+          "name": "",
+          "icon": "none"
+        }
+      ]
+    }
   ]

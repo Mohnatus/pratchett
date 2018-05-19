@@ -1,6 +1,7 @@
 extend ../templates/main.pug
 
 include ../landing/header.pug
+include ../pratchett/icons.pug
 include ../pratchett/header.pug
 include ../pratchett/scheme.pug
 
@@ -17,6 +18,7 @@ block topBody
 
 block content
 	.landing.pratchett
+		+icons
 		+landingHeader({class: 'white'}, {type: 'social'})
 		main
 			+pratchettHeader

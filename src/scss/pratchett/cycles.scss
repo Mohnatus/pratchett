@@ -1,9 +1,11 @@
 .book {
+  position: relative;
+  z-index: 10;
   display: flex; flex-direction: column;
   justify-content: space-between;
   width: 136px;
   padding: 8px 21px;
-  text-align: left; line-height: 1.1;
+  text-align: left; line-height: 1.2;
   border: 2px solid white;
   border-radius: 12px;
   color: white;
@@ -34,6 +36,7 @@
   width: $cyclesWidth;
   margin-left: auto; margin-right: auto;
   position: relative;
+  padding-bottom: 200px;
 
   &__column {
     margin-right: $cycleMarginRight;
@@ -62,6 +65,7 @@
       margin-top: $violetSeparateSpecificMargin;
     }
   }
+
 }
 
 .cycle {
@@ -69,6 +73,7 @@
   padding: $cyclePaddingTop $cyclePaddingLeft;
   border-radius: 22px;
   position: relative;
+  z-index: 1;
   margin-bottom: $cycleMarginBottom;
 
   &:before {
@@ -79,6 +84,11 @@
     width: 0;
     border: 1px solid white;
     z-index: 0;
+  }
+
+  &[data-cycle="fuchsia"]:before,
+  &[data-cycle="red"]:before {
+    display: none;
   }
 
   @each $cycle, $color in $cyclesColors {
@@ -96,7 +106,7 @@
   // }
 
   .book {
-    position: relative; z-index: 1;
+    position: relative;
     margin-bottom: $bookMarginBottom;
     background: inherit;
     &:last-of-type {
@@ -111,4 +121,27 @@
   }
 
 }
+
+.cycle {
+  .relations {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    overflow: visible;
+    stroke-width: 2;
+    stroke: white;
+    fill: none;
+
+    .dashed {
+      stroke-dasharray: 4 4;
+    }
+  }
+
+  &[data-cycle="blue"] {
+    .relations {
+      top: 100%;
+    }
+  }
+}
+
 

@@ -1,0 +1,130 @@
+.pratchett-header__world {
+  position: relative;
+}
+
+.book-card {
+  position: absolute;
+  top: 340px; right: 20px;
+  display: none;
+  align-items: flex-start;
+
+  width: 660px;
+  padding: 20px;
+  line-height: 1.2;
+  font-size: 14px;
+  text-align: left;
+
+  background: white;
+  border-radius: 5px;
+  color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
+  &[data-shown] {
+    display: flex;
+  }
+
+  .close {
+    position: absolute;
+    right: 20px; top: 20px;
+    width: 24px; height: 24px;
+    fill: rgba(0, 0, 0, 0.8);
+  }
+
+  &__img {
+    padding-right: 20px;
+    width: 140px;
+    height: 224px;
+    text-decoration: none;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+    }
+  }
+
+  &__title {
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 15px;
+  }
+
+  &__author {
+    color: rgba(0, 0, 0, 0.4);
+    margin-bottom: 5px;
+  }
+
+  .book-rating {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+
+    &__title {
+      background: #ffcc03;
+      padding: 5px 7px;
+      border-radius: 3px;
+      font-size: 13px;
+      color: #4e4e4e;
+    }
+
+    .count {
+      font-weight: bold;
+    }
+
+    &__vote {
+      margin-left: 5px;
+      font-size: 11px;
+      color: #ccc;
+    }
+
+    &__stars {
+      margin-left: 5px;
+      display: flex;
+    }
+
+    &__star {
+      width: 12px; height: 12px;
+      background-image: url(https://www.chitai-gorod.ru/ii/img/general/star-grey.png);
+      background-repeat: no-repeat;
+    }
+
+    &[data-rating="1"] .book-rating__star:nth-of-type(-n+1),
+    &[data-rating="2"] .book-rating__star:nth-of-type(-n+2),
+    &[data-rating="3"] .book-rating__star:nth-of-type(-n+3),
+    &[data-rating="4"] .book-rating__star:nth-of-type(-n+4),
+    &[data-rating="5"] .book-rating__star:nth-of-type(-n+5),
+    &[data-rating="6"] .book-rating__star:nth-of-type(-n+6),
+    &[data-rating="7"] .book-rating__star:nth-of-type(-n+7),
+    &[data-rating="8"] .book-rating__star:nth-of-type(-n+8),
+    &[data-rating="9"] .book-rating__star:nth-of-type(-n+9),
+    &[data-rating="10"] .book-rating__star:nth-of-type(-n+10) {
+      background-image: url(https://www.chitai-gorod.ru/ii/img/general/star.png);
+    }
+  }
+
+  &__button {
+    button {
+      height: 30px; 
+      font-size: inherit;
+      min-width: 108px;
+      white-space: nowrap;
+      padding: 0 20px;
+      border-radius: 3px;
+      background: #8bc53f;
+
+      &:hover {
+        background: #7db139;
+      }
+
+      &[data-status="in-basket"] {
+        background: #26a9e0;
+
+        &:hover {
+          background: #2298ca;
+        }
+      }
+    }
+  }
+}

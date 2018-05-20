@@ -1,5 +1,6 @@
 mixin map
   .pratchett-map
+    svg.pratchett-map__close: use(xlink:href="#close-icon")
     for column in map
       .pratchett-map__column
         if column.title
@@ -23,8 +24,11 @@ mixin pratchettScheme
           each cycle, cycleindex in column
             .cycle(data-cycle=cycle.id data-column-index=cycleindex+1)
               if cycle.books
-                each book, index in cycle.books
-                  .book(data-index=index+1 data-lines=book.lines data-cycle=cycle.id)
+                each book in cycle.books
+                  //.book(data-book = book )
+                  .book(data-index=book.index 
+                        data-lines=book.lines 
+                        data-cycle=(book.cycle ? book.cycle : cycle.id))
                     .book__title !{book.title}
                     .book__year !{book.year}
                     if book.relations 

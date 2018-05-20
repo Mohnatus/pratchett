@@ -11,6 +11,12 @@
   color: white;
   cursor: pointer;
 
+  @each $cycle, $color in $cyclesColors {
+    &[data-cycle="#{$cycle}"] {
+      background: $color;
+    }
+  }
+
   &:hover {
     .cycle-item__title, .cycle-item__year { color: inherit; }
   }
@@ -49,11 +55,11 @@
       margin-top: $book2Height * 2 + $bookMarginBottom * 2;
     }
 
-    &[data-column="4"] .book[data-index="3"] {
+    &[data-column="4"] .book:nth-of-type(3) {
       margin-top: $book1Height + $bookMarginBottom * 2;
     }
 
-    &[data-column="5"] .book[data-index="7"] {
+    &[data-column="5"] .book:nth-of-type(7) {
       margin-top: $violetSpecificMargin;
     }
 
@@ -108,7 +114,6 @@
   .book {
     position: relative;
     margin-bottom: $bookMarginBottom;
-    background: inherit;
     &:last-of-type {
       margin-bottom: 0;
     }

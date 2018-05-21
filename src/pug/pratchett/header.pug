@@ -20,10 +20,11 @@ mixin bookCard
     a.book-card__img(href="")
       img(src="" alt="")
     .book-card__info
-      a.book-card__title(href="")
-      .book-card__author
+      p
+        a.book-card__title(href="")
+      p.book-card__author
       .book-rating(data-rating="1")
-        .book-rating__title Рейтинг #[span.count]
+        .book-rating__title Рейтинг: #[span.count]
         .book-rating__vote
         .book-rating__stars
           .book-rating__star
@@ -36,9 +37,9 @@ mixin bookCard
           .book-rating__star
           .book-rating__star
           .book-rating__star
-      .book-card__year Год издания: #[span.year]
-      .book-card__publisher Издательство: #[span.publisher]
-      .book-card__price Цена: #[span.price]&#8399;
-      .book-card__annotation
+      p.book-card__year Год издания: #[span.year]
+      p.book-card__publisher Издательство: #[span.publisher]
+      p.book-card__price Цена: #[b #[span.price]&#8399;]
+      p.book-card__annotation
       .book-card__button
         button(type="button" data-element="") В корзину

@@ -1,5 +1,8 @@
 .pratchett-header__world {
   position: relative;
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .book-card {
@@ -30,6 +33,10 @@
     fill: rgba(0, 0, 0, 0.8);
   }
 
+  p {
+    margin: 10px 0;
+  }
+
   &__img {
     padding-right: 20px;
     width: 140px;
@@ -47,17 +54,16 @@
   &__title {
     text-decoration: none;
     font-weight: bold;
-    margin-bottom: 5px;
     font-size: 15px;
+    color: inherit;
   }
 
   &__author {
     color: rgba(0, 0, 0, 0.4);
-    margin-bottom: 5px;
   }
 
   .book-rating {
-    margin: 10px 0;
+    margin-bottom: 25px;
     display: flex;
     align-items: center;
 
@@ -103,7 +109,7 @@
       background-image: url(https://www.chitai-gorod.ru/ii/img/general/star.png);
     }
   }
-
+  
   &__button {
     button {
       height: 30px; 
@@ -113,9 +119,14 @@
       padding: 0 20px;
       border-radius: 3px;
       background: #8bc53f;
+      outline: none;
+      color: white;
+      box-shadow: none;
+      border: none;
 
       &:hover {
         background: #7db139;
+        outline: none;
       }
 
       &[data-status="in-basket"] {

@@ -10,7 +10,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "2": {
       "title": "Безумная звезда",
@@ -22,7 +22,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "3": {
       "title": "Посох и шляпа",
@@ -34,7 +34,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "4": {
       "title": "Эрик, а также Ночная стража, ведьмы и Коэн-Варвар",
@@ -46,7 +46,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "5": {
       "title": "Интересные времена",
@@ -58,7 +58,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "6": {
       "title": "Последний континент",
@@ -70,7 +70,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "7": {
       "title": "Последний герой",
@@ -82,7 +82,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "8": {
       "title": "Незримые академики",
@@ -94,7 +94,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "9": {
       "title": "Наука Плоскомирья I-IV",
@@ -106,7 +106,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
   },
   "green": {
@@ -120,7 +120,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "2": {
       "title": "Вещие сестрички",
@@ -132,7 +132,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "3": {
       "title": "Ведьмы за границей",
@@ -144,7 +144,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "4": {
       "title": "Дамы и господа",
@@ -156,7 +156,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "5": {
       "title": "Маскарад",
@@ -168,7 +168,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "6": {
       "title": "Хватай за горло",
@@ -180,7 +180,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
   },
   "orange": {
@@ -194,7 +194,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "2": {
       "title": "Шляпа, полная неба",
@@ -206,7 +206,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "3": {
       "title": "Господин Зима",
@@ -218,7 +218,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "4": {
       "title": "Платье цвета полуночи",
@@ -230,7 +230,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "5": {
       "title": "Пастушья корона",
@@ -242,7 +242,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
   },
   "pink": {
@@ -256,7 +256,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "2": {
       "title": "Мрачный Жнец",
@@ -268,7 +268,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "3": {
       "title": "Роковая музыка",
@@ -280,7 +280,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "4": {
       "title": "Санта-Хрякус",
@@ -292,7 +292,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "5": {
       "title": "Вор времени",
@@ -304,7 +304,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "6": {
       "title": "Изумительный Морис и его ученые грызуны",
@@ -316,7 +316,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
   },
   "fuchsia": {
@@ -330,7 +330,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "2": {
       "title": "Мелкие Боги",
@@ -342,7 +342,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     }
   },
   "violet": {
@@ -356,7 +356,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "2": {
       "title": "К оружию! К оружию!",
@@ -368,7 +368,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "3": {
       "title": "Ноги из глины",
@@ -380,7 +380,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "4": {
       "title": "Патриот",
@@ -392,7 +392,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "5": {
       "title": "Пятый элефант",
@@ -404,7 +404,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "6": {
       "title": "Ночная стража",
@@ -416,7 +416,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "7": {
       "title": "Шмяк!",
@@ -428,7 +428,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "8": {
       "title": "Пехотная баллада",
@@ -440,7 +440,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "9": {
       "title": "Дело табак",
@@ -452,7 +452,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
   },
   "red": {
@@ -466,7 +466,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "2": {
       "title": "Правда",
@@ -478,7 +478,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     }
   },
   "aqua": {
@@ -492,7 +492,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "2": {
       "title": "Делай деньги!",
@@ -504,7 +504,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     },
     "3": {
       "title": "Поддай пару!",
@@ -516,7 +516,7 @@ let data = {
       "rating": 9.67,
       "id": "123456",
       "link": "#",
-      "img": ""
+      "img":"https://img-gorod.ru/upload/iblock/4d1/4d1f5482c6d8474b95bfd82fb61a9167.jpg"
     }
   },
 }

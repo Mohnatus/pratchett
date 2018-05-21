@@ -15,6 +15,18 @@ mixin map
               svg.icon: use(xlink:href="#circle-icon")
             |!{item.name}
 
+mixin slider
+  .x-slider(data-slider="pratchett")
+    .x-slider__left
+    .x-slider__right
+    .x-slider__viewport
+      .x-slider__slide(data-active) slide 1
+      .x-slider__slide slide 2
+      .x-slider__slide slide 3
+      .x-slider__slide slide 4
+    .x-slider__controls
+
+
 
 mixin pratchettScheme
   .pratchett-scheme
@@ -39,4 +51,5 @@ mixin pratchettScheme
                 svg.relations
                   each relation in cycle.relations
                     path(d=relation.d class=relation.dash ? "dashed" : "")
+      +slider
     +map

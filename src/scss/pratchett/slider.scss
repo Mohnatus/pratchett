@@ -1,0 +1,96 @@
+$xSliderWidth: 100%;
+$xSliderPaddingLeft: 50px;
+$xSliderPaddingRight: 50px;
+$xSliderPaddingTop: 30px;
+$xSliderPaddingBottom: 30px;
+$xSliderBorderRadius: 20px;
+$xSliderBackground: white;
+
+$xSliderLeftArrowContent: '<';
+$xSliderRightArrowContent: '>';
+$xSliderArrowTop: 50%;
+$xSliderArrowOffset: 20px;
+$xSliderArrowFontSize: 40px;
+$xSliderArrowFontWeight: bold;
+
+$xSliderViewportHeight: 400px;
+
+$xSliderControlsHeight: 70px;
+$xSliderControlsMarginTop: 10px;
+
+.x-slider {
+  //display: none; 
+
+  position: relative;
+  width: $xSliderWidth;
+  padding: $xSliderPaddingTop $xSliderPaddingRight $xSliderPaddingBottom $xSliderPaddingLeft;
+
+  font-size: 26px;
+  color: black;
+
+  border-radius: $xSliderBorderRadius;
+  background: $xSliderBackground;
+
+  &__left, &__right {
+    position: absolute;
+    top: $xSliderArrowTop;
+    transform: translateY(-50%);
+    font-size: $xSliderArrowFontSize;
+    font-weight: $xSliderArrowFontWeight;
+    cursor: pointer;
+  }
+
+  &__left {
+    left: $xSliderArrowOffset;
+  }
+
+  &__right {
+    right: $xSliderArrowOffset;
+  }
+
+  &__left:before {
+    content: $xSliderLeftArrowContent;
+  }
+
+  &__right:before {
+    content: $xSliderRightArrowContent;
+  }
+
+  &__viewport {
+    width: 100%;
+    height: $xSliderViewportHeight;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__slide {
+    flex-shrink: 0;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; right: 100%;
+    opacity: 0;
+    transition: left 600ms, opacity 600ms;
+
+    &[data-active] {
+      opacity: 1;
+    }
+
+
+  }
+
+  &__controls {
+    width: 100%;
+    height: $xSliderControlsHeight;
+    margin-top: $xSliderControlsMarginTop;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.x-slider[data-slider="pratchett"] {
+  position: absolute;
+  left: 0; top: 100px;
+  z-index: 20;
+}

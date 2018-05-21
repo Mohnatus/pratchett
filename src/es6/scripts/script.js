@@ -6,6 +6,8 @@ import showBookCard from '../modules/bookCard.js';
 
 import Label from '../modules/cycles.js';
 
+import Slider from '../modules/slider.js';
+
 
 window.addEventListener('DOMContentLoaded', function() {
   Map('.pratchett-map');
@@ -25,12 +27,24 @@ window.addEventListener('DOMContentLoaded', function() {
       let index = this.dataset.index;
       Label.hide();
       let bookData = data[cycle][index];
+      console.log(bookData, 22)
       showBookCard(bookData);
     });
     flags[i].addEventListener('mouseleave', function(e) {
       Label.hide();
     });
   }
+
+  let slider = new Slider({
+    element: document.querySelector('[data-slider="pratchett"]'),
+    createSlide: function(data) {
+      let slide = document.createElement('div');
+      let image = document.createElement('img');
+      image.src = data.src;
+      slide.appendChild(image);
+      return slide;
+    }
+  });
 
 });
 

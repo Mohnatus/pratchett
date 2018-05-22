@@ -1,15 +1,11 @@
-//include ../svg/logo.pug
-
-//- <path d=" " fill="red"/>
 -
-  bigWave = [
+  var bigWave2 = [
     {
       action: "M", 
       points: [ 
-        //[789.4, 147.644], 
         [ 952.8, 177.044],
       ]
-    },{//C907.7 141.244 844.3 129.744 789.4 147.644Z
+    },{
       action: "C",
       points: [
         [ 907.7, 141.244],
@@ -149,6 +145,7 @@
         [ 321.5, 108.744],
       ]
     },{//C348.6 121.244 354.3 158.244 377.3 177.344
+    
       action: "C",
       points: [
         [ 348.6, 121.244],
@@ -156,6 +153,7 @@
         [ 377.3, 177.344],
       ]
     },{//C394.5 191.644 418.8 193.744 440.9 191.044
+    
       action: "C",
       points: [
         [ 394.5, 191.644],
@@ -194,31 +192,5 @@
         [ 907.1, 182.744],
         [ 952.8, 177.044],
       ]
-    },
-  ]; 
-
-include ../pratchett/bigWave2.pug
-
-mixin setWavePath(wave, color, width, array)
-  -
-    var a = wave;
-    var d = a.reduce((acc, cur) => {
-      return acc + cur.action + cur.points.reduce((acc, cur) => {
-        return acc + " " + cur[0] + " " + cur[1];
-      }, "")
-    }, "");
-  path(d = d stroke=color stroke-width=width stroke-dasharray=array? "5 5" : "1"  transform="translate(0, 5)")
-
-
-<!DOCTYPE html>
-html(lang="ru")
-head
-  meta(charset="UTF-8")
-  meta(name="viewport", content="width=device-width, initial-scale=1.0")
-  meta(http-equiv="X-UA-Compatible", content="ie=edge")
-  title Demo
-body(style="margin:0;padding:100px 0;")
-  svg#wave-1(width="953" height="225" viewBox="0 0 953 225" fill="none" xmlns="http://www.w3.org/2000/svg")
-    +setWavePath(bigWave, "red", 3, true)
-    +setWavePath(bigWave2, "green", 5)
-    
+    }
+  ];

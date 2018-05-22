@@ -1,9 +1,16 @@
 mixin pratchettHeader
+  include compass.pug
+  include icons.pug
   .pratchett-header
+    +bigWave(1)
+    +smallWave(1)
+    +reversiveSmallWave(2)
+    +reversiveBigWave(2)
     h1.pratchett-header__strip.text-center
       img(src=imgUrl+'title.svg' width="1190" height="216")
     .pratchett-header__world.text-center
       .turtle
+        +compass
         .flags
           for block in flags
             .flags__block

@@ -1,0 +1,46 @@
+
+.big-wave, .small-wave {
+  position: absolute;
+  z-index: 0;
+
+  &.reverse {
+    transform: scaleX(-1);
+  }
+}
+
+.pratchett-header {
+  .big-wave {
+    &_1 {
+      top: 187px; left: 0%;
+    }
+
+    &_2 {
+      top: 307px; right: 0;
+    }
+  }
+
+  .small-wave {
+    &_1 {
+      top: 561px; left: 0;
+    }
+
+    &_2 {
+      right: 0; top: 27px;
+    }
+  }
+}
+
+.pratchett-scheme {
+  .big-wave_1 {
+    top: 96px; left: 0;
+  }
+  .big-wave_2 {
+    top: 758px; left: 0;
+  }
+  .big-wave_3 {
+    top: 814px; right: 0;
+  }
+  .small-wave_1 {
+    top: 563px; right: 0;
+  }
+}

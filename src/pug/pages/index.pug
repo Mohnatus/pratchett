@@ -1,5 +1,6 @@
 extend ../templates/main.pug
 
+include ../elements/links.pug
 include ../landing/header.pug
 include ../pratchett/icons.pug
 include ../pratchett/header.pug
@@ -13,6 +14,7 @@ block topHead
 	include ../pratchett/cycles.pug
 
 block bottomHead
+	script(src="lib/anime.min.js")
 
 block topBody
 

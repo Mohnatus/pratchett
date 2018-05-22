@@ -17,19 +17,21 @@ mixin map
 
 mixin slider
   .x-slider(data-slider="pratchett")
+    .x-slider__close x
     .x-slider__left
     .x-slider__right
     .x-slider__viewport
-      .x-slider__slide(data-active) slide 1
-      .x-slider__slide slide 2
-      .x-slider__slide slide 3
-      .x-slider__slide slide 4
     .x-slider__controls
 
 
 
 mixin pratchettScheme
+  include icons.pug
   .pratchett-scheme
+    +bigWave(1)
+    +bigWave(2)
+    +reversiveSmallWave(1)
+    +reversiveBigWave(3)
     .cycles
       each column, index in columns
         .cycles__column(data-column=index+1)

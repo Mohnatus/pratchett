@@ -95,6 +95,14 @@ gulp.task('media', function() {
     .pipe(gulp.dest(configuration.outputFolder + 'media'))
 });
 
+
+gulp.task('lib', function() {
+  gulp.src('./src/es6/lib/**/*.*')
+    .pipe(using({}))
+    .pipe(plumber())
+    .pipe(gulp.dest(configuration.outputFolder + 'lib'))
+});
+
 gulp.task('watcher', function() {
   gulp.watch('./src/pug/**/*.pug', (event, sb) => {
     gulp.start('pug');
@@ -150,8 +158,8 @@ gulp.task('cleanDevelopment', function() {
     .pipe(clean({forse: true}))
 });
 
-gulp.task('default', ['watcher', 'browser-sync', 'moveData', 'media', 'es6', 'scss', 'pug']);
-gulp.task('production', ['setProduction', 'moveData', 'media', 'es6', 'scss', 'php']);
+gulp.task('default', ['watcher', 'browser-sync', 'moveData', 'media', 'lib', 'es6', 'scss', 'pug']);
+gulp.task('production', ['setProduction', 'moveData', 'media', 'lib', 'es6', 'scss', 'php']);
 
 
 

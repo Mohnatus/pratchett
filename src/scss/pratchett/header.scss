@@ -1,7 +1,15 @@
+
+
 .pratchett-header {
     padding-top: 15px;
     padding-bottom: 165px;
     min-height: 300px; 
+    position: relative;
+
+    &__strip {
+      position: relative;
+      z-index: 1;
+    }
 }
 
 
@@ -11,6 +19,32 @@
   width: 811px;
   height: 601px;
   background: url($imgUrl+ 'turtle.svg') center / contain no-repeat;
+
+  .compass {
+    position: absolute;
+    left: -46px;
+    bottom: -38px;
+    animation: compassAnimation infinite 40s;
+  }
+
+  @keyframes compassAnimation {
+    from { transform: rotate(0deg); }
+
+    11% { transform: rotate(90deg); }
+    17% { transform: rotate(60deg); }
+
+    47% { transform: rotate(270deg); }
+    51% { transform: rotate(240deg); }
+
+    62% { transform: rotate(140deg); }
+    68% { transform: rotate(160deg); }
+
+    79% { transform: rotate(330deg); }
+    85% { transform: rotate(300deg); }
+
+    94% { transform: rotate(390deg); }
+    100% { transform: rotate(360deg); }
+  }
 
   .book {
     position: absolute;

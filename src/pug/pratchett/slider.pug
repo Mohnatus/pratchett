@@ -1,0 +1,41 @@
+mixin pratchettSlider
+  .pratchett-slider(data-slider="pratchett")
+    +slider
+
+mixin slider
+  .x-slider
+    .x-slider__close x
+    .x-slider__left
+    .x-slider__right
+    .x-slider__viewport
+    .x-slider__controls
+
+mixin bookCard
+  .book-card
+    svg.close: use(xlink:href="#close-icon")
+    a.book-card__img(href="")
+      img(src="" alt="")
+    .book-card__info
+      p
+        a.book-card__title(href="")
+      p.book-card__author
+      .book-rating(data-rating="1")
+        .book-rating__title Рейтинг: #[span.count]
+        .book-rating__vote
+        .book-rating__stars
+          .book-rating__star
+          .book-rating__star
+          .book-rating__star
+          .book-rating__star
+          .book-rating__star
+          .book-rating__star
+          .book-rating__star
+          .book-rating__star
+          .book-rating__star
+          .book-rating__star
+      p.book-card__year Год издания: #[span.year]
+      p.book-card__publisher Издательство: #[span.publisher]
+      p.book-card__price Цена: #[b #[span.price]&#8399;]
+      p.book-card__annotation
+      .book-card__button
+        button(type="button" data-element="") В корзину

@@ -15,14 +15,6 @@ mixin map
               svg.icon: use(xlink:href="#circle-icon")
             |!{item.name}
 
-mixin slider
-  .x-slider(data-slider="pratchett")
-    .x-slider__close x
-    .x-slider__left
-    .x-slider__right
-    .x-slider__viewport
-    .x-slider__controls
-
 
 
 mixin pratchettScheme
@@ -42,8 +34,12 @@ mixin pratchettScheme
                   //.book(data-book = book )
                   .book(data-index=book.index 
                         data-lines=book.lines 
-                        data-cycle=(book.cycle ? book.cycle : cycle.id))
+                        data-cycle=(book.cycle ? book.cycle : cycle.id) data-cycle-item)
                     .book__title !{book.title}
+                    if book.picture
+                      .book__add Иллюстрированный роман
+                    if book.science
+                      .book__add Научный роман
                     .book__year !{book.year}
                     if book.relations 
                       svg.relations
@@ -53,5 +49,4 @@ mixin pratchettScheme
                 svg.relations
                   each relation in cycle.relations
                     path(d=relation.d class=relation.dash ? "dashed" : "")
-      +slider
     +map

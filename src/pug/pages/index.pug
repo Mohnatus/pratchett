@@ -5,6 +5,7 @@ include ../landing/header.pug
 include ../pratchett/icons.pug
 include ../pratchett/header.pug
 include ../pratchett/scheme.pug
+include ../pratchett/slider.pug
 
 block topHead
 	-var styleFile = "style.css"
@@ -25,6 +26,8 @@ block content
 		main
 			+pratchettHeader
 			+pratchettScheme
+			+pratchettSlider
+
 
 block bottomBody
 	script(src="js/script.js")

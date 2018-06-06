@@ -15,22 +15,23 @@ window.addEventListener('DOMContentLoaded', function() {
   let turtle = document.querySelector('.turtle');
 
   let flags = turtle.querySelectorAll('.flag');
-
   let cycles = document.querySelector('.cycles');
+
+  
 
   for (let i = 0, len = flags.length; i < len; i++) {
     flags[i].addEventListener('mouseenter', function(e) {
       let cycle = this.dataset.cycle;
-      let index = this.dataset.index - 1;
+      let index = this.dataset.index;
       Label.show(cycle, index);
     });
-    flags[i].addEventListener('click', function(e) {
-      let cycle = this.dataset.cycle;
-      let index = this.dataset.index - 1;
-      Label.hide();
-      let bookData = data[cycle][index];
-      showBookCard(bookData);
-    });
+    // flags[i].addEventListener('click', function(e) {
+    //   let cycle = this.dataset.cycle;
+    //   let index = this.dataset.index - 1;
+    //   Label.hide();
+    //   let bookData = data[cycle][index];
+    //   showBookCard(bookData);
+    // });
     flags[i].addEventListener('mouseleave', function(e) {
       Label.hide();
     });
@@ -68,23 +69,45 @@ window.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  if (slider.error) alert('slider error!')
+  if (slider.error) alert('slider error!');
 
-  cycles.addEventListener('click', (e) => {
-    let el = e.target;
-    while(!el.classList.contains('book')) {
-      el = el.parentNode;
-      if (el.classList.contains('cycles')) break;
-    }
-    if (el.classList.contains('book')) {
-      let cycle = el.dataset.cycle;
-      let index = el.dataset.index - 1;
-      let slides = data[cycle];
-      slider.update(slides, cycle);
-      slider.setActiveSlide(index);
-      slider.show(index);
-    }
+  let cycleItems = Array.prototype.slice.call(document.querySelectorAll('[data-cycle-item]'), this);
+
+  cycleItems.forEach((item, ind) => {
+    item.addEventListener('click', (e) => {
+      let el = item;
+      console.log('cliiiick', el);
+      // while(!el.classList.contains('book')) {
+      //   el = el.parentNode;
+      //   if (el.classList.contains('cycles')) break;
+      // }
+      
+        let cycle = el.dataset.cycle;
+        let index = el.dataset.index - 1;
+        let slides = data[cycle];
+        slider.update(slides, cycle);
+        slider.setActiveSlide(index);
+        slider.show(index);
+      
+    })
+      
   })
+
+  // cycles.addEventListener('click', (e) => {
+  //   let el = e.target;
+  //   while(!el.classList.contains('book')) {
+  //     el = el.parentNode;
+  //     if (el.classList.contains('cycles')) break;
+  //   }
+  //   if (el.classList.contains('book')) {
+  //     let cycle = el.dataset.cycle;
+  //     let index = el.dataset.index - 1;
+  //     let slides = data[cycle];
+  //     slider.update(slides, cycle);
+  //     slider.setActiveSlide(index);
+  //     slider.show(index);
+  //   }
+  // })
 
 });
 

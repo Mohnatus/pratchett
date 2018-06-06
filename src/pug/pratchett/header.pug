@@ -16,37 +16,7 @@ mixin pratchettHeader
             .flags__block
               -var i = 1
               while i <= block.length
-                .flag(data-index=i data-cycle=block.id)
+                .flag(data-index=i data-cycle=block.id data-cycle-item)
                   svg.flag-icon: use(xlink:href="#flag-icon")
                   -i++
-      +bookCard
 
-mixin bookCard
-  .book-card
-    svg.close: use(xlink:href="#close-icon")
-    a.book-card__img(href="")
-      img(src="" alt="")
-    .book-card__info
-      p
-        a.book-card__title(href="")
-      p.book-card__author
-      .book-rating(data-rating="1")
-        .book-rating__title Рейтинг: #[span.count]
-        .book-rating__vote
-        .book-rating__stars
-          .book-rating__star
-          .book-rating__star
-          .book-rating__star
-          .book-rating__star
-          .book-rating__star
-          .book-rating__star
-          .book-rating__star
-          .book-rating__star
-          .book-rating__star
-          .book-rating__star
-      p.book-card__year Год издания: #[span.year]
-      p.book-card__publisher Издательство: #[span.publisher]
-      p.book-card__price Цена: #[b #[span.price]&#8399;]
-      p.book-card__annotation
-      .book-card__button
-        button(type="button" data-element="") В корзину

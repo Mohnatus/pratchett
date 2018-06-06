@@ -6,7 +6,7 @@ $redCycle: #EB5757;
 $violetCycle: #7864C6;
 $fuchsiaCycle: #ED1F6F;
 $greenCycle: #219653;
-$darkCycle: #4F0954;
+$limeCycle: #8AB50F;
 
 $cyclesColors: (
   blue: $blueCycle,
@@ -17,7 +17,7 @@ $cyclesColors: (
   violet: $violetCycle,
   fuchsia: $fuchsiaCycle,
   green: $greenCycle,
-  dark: $darkCycle
+  lime: $limeCycle
 );
 
 $flagsPositions: (
@@ -105,6 +105,7 @@ $book4Height: 135px;
 $book5Height: 148px;
 $violetSpecificMargin: 109px;
 $violetSeparateSpecificMargin: 228px;
+$limeCycleMargin: 224px;
 
 body {
   background: $darkViolet;
@@ -116,5 +117,5 @@ body {
 @import 'header.scss';
 @import 'bookCard.scss';
 @import 'cycles.scss';
-@import 'slider.scss';
+//@import 'slider.scss';
 @import 'map.scss';

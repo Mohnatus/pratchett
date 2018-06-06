@@ -1,7 +1,9 @@
 let XSlider = function(config) {
   try {
-    this.$ = config.element;
+    this.wrapper = config.element;
+    this.$ = this.wrapper.querySelector("." + XSlider.mainClass);
     this.createCustomSlide = config.createSlide;
+    this.createCustomControl = config.createControl;
     this.currentSlide;
     this.currentSlideIndex;
     this.animationDuration = config.animationDuration || 700;
@@ -70,7 +72,7 @@ XSlider.attrs = {
 XSlider.prototype.initSlide = function($slide, index) {
   $slide.setAttribute(XSlider.attrs.index, index);
   this.slides.push($slide);
-  this.createControl(index);
+  this.createControl($slide, index);
 };
 
 XSlider.prototype.createSlide = function(slideData) {
@@ -79,8 +81,7 @@ XSlider.prototype.createSlide = function(slideData) {
   return slide;
 };
 
-XSlider.prototype.addSlides = function(slides, setName) {
-  console.log('add', slides)
+XSlider.prototype.addSlides = function(slides, setName, index) {
   if (!slides || !slides.length) return;
   let fragment = document.createDocumentFragment();
   for (let i = 0, count = slides.length; i < count; i++) {
@@ -89,20 +90,17 @@ XSlider.prototype.addSlides = function(slides, setName) {
     fragment.appendChild(slide);
   }
   this.$viewport.appendChild(fragment);
-  if (!this.currentSlide) this.setActiveSlide(0);
+  this.setActiveSlide(index);
 };
 
 XSlider.prototype.saveSet = function(setName) {
-  console.log('save set', setName);
   let set = {};
   set.slides = this.slides;
   set.controls = this.controls;
   this.sets[setName] = set;
-  console.log(this.sets);
 }
 
-XSlider.prototype.restoreSet = function(setName) {
-  console.log('restore', setName);
+XSlider.prototype.restoreSet = function(setName, index) {
   let viewportFragment = document.createDocumentFragment();
   let controlFragment = document.createDocumentFragment();
   let set = this.sets[setName];
@@ -116,17 +114,20 @@ XSlider.prototype.restoreSet = function(setName) {
   this.controls = set.controls;
   this.$viewport.appendChild(viewportFragment);
   this.$controls.appendChild(controlFragment);
-  if (!this.currentSlide) this.setActiveSlide(0);
+  console.log('restore', this.currentControl)
+  this.setActiveSlide(index);
 }
 
-XSlider.prototype.update = function(slides, setName) {
-  console.log('update', slides, setName, this.currentSet)
-  if (this.currentSet == setName) return;
+XSlider.prototype.update = function(slides, setName, index) {
+  if (this.currentSet == setName) {
+    if (this.currentSlideIndex !== index) this.setActiveSlide(index);
+    return;
+  }
   this.currentSet = setName;
   this.clean();
-  if (this.sets[setName]) this.restoreSet(setName);
+  if (this.sets[setName]) this.restoreSet(setName, index);
   else {
-    this.addSlides(slides);
+    this.addSlides(slides, setName, index);
     this.saveSet(setName);
   }
 };
@@ -139,15 +140,19 @@ XSlider.prototype.clean = function(setName) {
   this.controls = [];
   this.$viewport.innerHTML = '';
   this.$controls.innerHTML = '';
-  this.currentSlide = null;
-  this.currentSlideIndex = 0;
-  this.currentControl = null;
+  this.resetActiveSlide();
 };
 
-XSlider.prototype.createControl = function(index) {
-  let control = document.createElement('div');
+XSlider.prototype.createControl = function($slide, index) {
+  let control;
+  if (this.createCustomControl) {
+    control = this.createCustomControl($slide);
+  } else {
+    control = document.createElement('div');
+    control.textContent = "X";    
+  }
+  
   control.classList.add(XSlider.classes.control);
-  control.textContent = "X";
   control.setAttribute(XSlider.attrs.index, index);
 
   control.addEventListener('click', ()=> {
@@ -159,18 +164,29 @@ XSlider.prototype.createControl = function(index) {
 };
 
 XSlider.prototype.setActiveSlide = function(index) {
+  console.log('set active', index, this.currentControl)
+  index = index || 0;
   if (this.slides.length == 0) return;
   if (this.slides.length <= index) index = 0;
-  if (this.currentSlide) {
-    this.currentSlide.removeAttribute(XSlider.attrs.active);
-    this.currentControl.removeAttribute(XSlider.attrs.active);
-  }
+  this.resetActiveSlide();
   this.currentSlideIndex = index || 0;
   this.currentSlide = this.slides[this.currentSlideIndex];
   this.currentSlide.setAttribute(XSlider.attrs.active, ''); 
   this.currentControl = this.controls[this.currentSlideIndex];
   this.currentControl.setAttribute(XSlider.attrs.active, ''); 
+  console.log('current', index, this.currentSlide, this.currentControl)
 };
+
+XSlider.prototype.resetActiveSlide = function() {
+  console.log('reset');
+  if (this.currentSlide) {
+    this.currentSlide.removeAttribute(XSlider.attrs.active);
+    this.currentControl.removeAttribute(XSlider.attrs.active);
+    this.currentSlide = null;
+    this.currentControl = null;
+    this.currentSlideIndex = 0;
+  }
+}
 
 XSlider.prototype.animate = function(nextIndex, dir) {
   if (this.inAnimation) return;
@@ -201,6 +217,8 @@ XSlider.prototype.animate = function(nextIndex, dir) {
       this.currentSlide = nextSlide;
       this.currentControl = nextControl;
       this.inAnimation = false;
+
+      console.log('animate complete', this.currentSlide, this.currentControl)
     }
   })
   .add({
@@ -221,6 +239,7 @@ XSlider.prototype.animate = function(nextIndex, dir) {
 }
 
 XSlider.prototype.toSlide = function(index) {
+  console.log("to slide", this.currentControl)
   if (
     this.currentSlideIndex == index 
     || index < 0 
@@ -234,6 +253,7 @@ XSlider.prototype.toSlide = function(index) {
 };
 
 XSlider.prototype.toNextSlide = function() {
+  console.log("to next slide", this.currentControl)
   let nextIndex = this.currentSlideIndex + 1;
   if (nextIndex >= this.slides.length) nextIndex = 0;
 
@@ -248,12 +268,15 @@ XSlider.prototype.toPrevSlide = function() {
 }
 
 XSlider.prototype.hide = function() {
-  this.$.style.display = "none";
+  console.log('hide', this.currentControl)
+  this.wrapper.style.display = "none";
+  this.resetActiveSlide();
 }
 
 XSlider.prototype.show = function() {
   if (this.slides.length == 0) return;
-  this.$.style.display = "block";
+  console.log('show', this.currentControl)
+  this.wrapper.style.display = "block";
 }
 
 export default XSlider;

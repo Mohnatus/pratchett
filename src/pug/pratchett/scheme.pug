@@ -28,7 +28,8 @@ mixin pratchettScheme
       each column, index in columns
         .cycles__column(data-column=index+1)
           each cycle, cycleindex in column
-            .cycle(data-cycle=cycle.id data-column-index=cycleindex+1)
+            -var className = "cycle" + (cycle.transparent ? " cycle_transparent" : "")
+            div(class=className data-cycle=cycle.id data-column-index=cycleindex+1)
               if cycle.books
                 each book in cycle.books
                   //.book(data-book = book )
@@ -40,8 +41,11 @@ mixin pratchettScheme
                       .book__add Иллюстрированный роман
                     if book.science
                       .book__add Научный роман
-                    .book__year !{book.year}
-                    if book.relations 
+                    if book.year
+                      .book__year !{book.year}
+                    if book.separate
+                      svg.star: use(xlink:href="#star-icon")
+                    if book.relations
                       svg.relations
                         each relation in book.relations
                           path(d=relation.d class=relation.dash ? "dashed" : "")

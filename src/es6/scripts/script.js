@@ -2,12 +2,16 @@ import Map from '../modules/map.js';
 
 import data from '../modules/testData.js';
 
-import showBookCard from '../modules/bookCard.js';
+import updateCard from '../modules/bookCard.js';
 
 import Label from '../modules/cycles.js';
 
-import Slider from '../modules/slider.js';
+//import Slider from '../modules/slider.js';
 
+
+function add2Basket(id) {
+
+}
 
 window.addEventListener('DOMContentLoaded', function() {
   Map('.pratchett-map');
@@ -17,7 +21,14 @@ window.addEventListener('DOMContentLoaded', function() {
   let flags = turtle.querySelectorAll('.flag');
   let cycles = document.querySelector('.cycles');
 
-  
+  document.addEventListener('click', (e) => {
+    if (e.target.hasAttribute('data-status')) {
+      if (e.target.getAttribute('data-status') == 'buy') {
+        let id = e.target.getAttribute('data-product');
+        add2Basket(id);
+      }
+    }
+  })  
 
   for (let i = 0, len = flags.length; i < len; i++) {
     flags[i].addEventListener('mouseenter', function(e) {
@@ -25,27 +36,26 @@ window.addEventListener('DOMContentLoaded', function() {
       let index = this.dataset.index;
       Label.show(cycle, index);
     });
-    // flags[i].addEventListener('click', function(e) {
-    //   let cycle = this.dataset.cycle;
-    //   let index = this.dataset.index - 1;
-    //   Label.hide();
-    //   let bookData = data[cycle][index];
-    //   showBookCard(bookData);
-    // });
     flags[i].addEventListener('mouseleave', function(e) {
       Label.hide();
     });
   }
 
-  let createBlock = (el, className, attrs, content) => {
+  /*let createBlock = (el, className, attrs, content) => {
     let block = document.createElement(el);
-    block.classList.add(className);
+    if (className) {
+      block.classList.add(className);
+    }
+    
     if (attrs) {
       for (let attr in attrs) {
         block.setAttribute(attr, attrs[attr] || '');
       }
     }
-    if (content) block.textContent = content;
+    if (content) {
+      if (typeof(content) == "string") block.innerHTML = content;
+      else block.appendChild(content);
+    }
     return block;
   }
 
@@ -60,54 +70,64 @@ window.addEventListener('DOMContentLoaded', function() {
       let info = createBlock('div', name + "__info");
       let title = createBlock('div', name + "__title", false, data.title);
       let author = data.author ? createBlock('div', name + "__author", false, data.author) : '';
-      let description = createBlock('div', name + "__description", false, data.description);
+      let ratingContent = document.createDocumentFragment();
+      let ratingTitle = createBlock('span', 'rating__title', false, 'Рейтинг: <b>' + data.rating + '</b>');
+      let vote = createBlock('span', 'rating__vote', false, data.votes);
+      let star = "<svg class='rating__star'><use xlink:href='#star-icon'></use></svg>";
+      let starsGroup = "";
+      for (let i = 0; i < 10; i++) {
+        starsGroup += star;
+      };
+      let stars = createBlock('span', 'rating__stars', false, starsGroup);
+      ratingContent.appendChild(ratingTitle);
+      ratingContent.appendChild(vote);
+      ratingContent.appendChild(stars);
+      console.log(ratingContent)
+      let rating = createBlock('div', "rating", {"data-rating": Math.ceil(data.rating)}, ratingContent);
+      let year = createBlock('p', false, false, "Год издания: " + data.year);
+      let publisher = createBlock('p', false, false, "Издательство: " + data.publisher);
+      let price = createBlock('p', false, false, "Цена: <b>" + data.price + '&#8381;</b>');
+      let button = createBlock('div', name + "__button", false, data.button);
       info.appendChild(title);
       info.appendChild(author);
+      info.appendChild(rating);
+      info.appendChild(year);
+      info.appendChild(publisher);
+      info.appendChild(price);
+      info.appendChild(button);
+      
       slide.appendChild(link);
       slide.appendChild(info);
+
+      slide.imagePath = data.img;
       return slide;
+    },
+    createControl: function($slide) {
+      let name = 'pratchett-control';
+      let control = createBlock('div', name);
+      let img = $slide.imagePath;
+      control.style.backgroundImage = `url(${img})`;
+      return control;
     }
   });
 
   if (slider.error) alert('slider error!');
+  */
+
+
 
   let cycleItems = Array.prototype.slice.call(document.querySelectorAll('[data-cycle-item]'), this);
 
   cycleItems.forEach((item, ind) => {
     item.addEventListener('click', (e) => {
       let el = item;
-      console.log('cliiiick', el);
-      // while(!el.classList.contains('book')) {
-      //   el = el.parentNode;
-      //   if (el.classList.contains('cycles')) break;
-      // }
-      
-        let cycle = el.dataset.cycle;
-        let index = el.dataset.index - 1;
-        let slides = data[cycle];
-        slider.update(slides, cycle);
-        slider.setActiveSlide(index);
-        slider.show(index);
-      
+      let cycle = el.dataset.cycle;
+      let index = el.dataset.index - 1;
+      let slides = data[cycle];
+      //slider.update(slides, cycle, index);
+      updateCard(slides, index);
     })
       
   })
-
-  // cycles.addEventListener('click', (e) => {
-  //   let el = e.target;
-  //   while(!el.classList.contains('book')) {
-  //     el = el.parentNode;
-  //     if (el.classList.contains('cycles')) break;
-  //   }
-  //   if (el.classList.contains('book')) {
-  //     let cycle = el.dataset.cycle;
-  //     let index = el.dataset.index - 1;
-  //     let slides = data[cycle];
-  //     slider.update(slides, cycle);
-  //     slider.setActiveSlide(index);
-  //     slider.show(index);
-  //   }
-  // })
-
 });
 

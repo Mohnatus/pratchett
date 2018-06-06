@@ -2,9 +2,9 @@
   position: relative;
   z-index: 10;
   display: flex; flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 136px;
-  padding: 8px 21px;
+  padding: 8px 10px 8px 21px;
   text-align: left; line-height: 1.2;
   border: 2px solid white;
   border-radius: 12px;
@@ -17,8 +17,17 @@
     }
   }
 
+  .star {
+    position: absolute;
+    bottom: 7px; right: 7px;
+    width: 20px;
+    height: 20px;
+    fill: white;
+  }
+
   &:hover {
     .cycle-item__title, .cycle-item__year { color: inherit; }
+    .star { fill: inherit; }
   }
 
   &__title {
@@ -29,6 +38,12 @@
   &__date {
     font-size: 15px;
   }
+
+  &__add {
+    font-size: 12px;
+  }
+
+
 
   &[data-lines="1"] { height: $book1Height; }
   &[data-lines="2"] { height: $book2Height; }
@@ -59,9 +74,9 @@
       margin-top: $book1Height + $bookMarginBottom * 2;
     }
 
-    &[data-column="5"] .book:nth-of-type(7) {
-      margin-top: $violetSpecificMargin;
-    }
+    // &[data-column="5"] .book:nth-of-type(7) {
+    //   margin-top: $violetSpecificMargin;
+    // }
 
     &[data-column="6"] {
       margin-top: $book2Height * 2 + $book1Height + $bookMarginBottom * 2 + $cyclePaddingTop * 2 + $cycleMarginBottom;
@@ -97,19 +112,32 @@
     display: none;
   }
 
+  &[data-cycle="lime"] {
+    margin-top: $limeCycleMargin;
+
+    .book {
+      margin-bottom: 26px;
+
+      &__title {
+        margin: 0;
+      }
+    }
+  }
+
   @each $cycle, $color in $cyclesColors {
     &[data-cycle="#{$cycle}"] {
       background: $color;
       color: $color;
+      fill: $color;
     }
   }
 
-  // @each $cycle, $coords in $cyclesPositions {
-  //   &[data-cycle="#{$cycle}"] {
-  //     left: nth($coords, 1);
-  //     top: nth($coords, 2);
-  //   }
-  // }
+  &.cycle_transparent {
+    background: transparent;
+    &:before {
+      display: none;
+    }
+  }
 
   .book {
     position: relative;

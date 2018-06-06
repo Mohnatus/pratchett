@@ -33,8 +33,8 @@
     },{
       'title': 'Последний герой',
       'year': '2001',
-      'star': true,
-      'lines': 2,
+      'picture': true,
+      'lines': 3,
       'index': 7
     },{
       'title': 'Незримые академики',
@@ -45,7 +45,7 @@
       'title': 'Наука Плоскомирья<br>I-IV',
       'year': '1999-2013',
       'science': true,
-      'lines': 3,
+      'lines': 5,
       'index': 9
     }
   ];
@@ -130,7 +130,7 @@
       'lines': 4,
       'index': 3,
       'separate': true
-    }{
+    },{
       'title': 'Роковая<br>музыка',
       'year': '1994',
       'lines': 2,
@@ -144,7 +144,7 @@
       'title': 'Вор<br>времени',
       'year': '2001',
       'lines': 2,
-      'index': 2
+      'index': 6
     }
   ];
 
@@ -199,7 +199,8 @@
       'title': 'Пехотная баллада',
       'year': '2003',
       'lines': 2,
-      'index': 7
+      'index': 7,
+      'separate': true
     },{
       'title': 'Шмяк!',
       'year': '2005',
@@ -211,21 +212,23 @@
       'lines': 2,
       'index': 9
     }
-  ]
+  ];
 
   var redCycle = [
     {
       'title': 'Движущиеся картинки',
       'year': '1990',
       'lines': 2,
-      'index': 1
+      'index': 1,
+      'separate': true
     },{
       'title': 'Правда',
       'year': '2000',
       'lines': 1,
-      'index': 2
+      'index': 2,
+      'separate': true
     },
-  ]
+  ];
 
   var aquaCycle = [
     {
@@ -244,7 +247,19 @@
       'lines': 2,
       'index': 3
     },
-  ]
+  ];
+
+  var limeCycle = [
+    {
+      'title': 'Весь<br>Анк-Морпорк.<br>Справочник',
+      'lines': 2,
+      'index': 1,
+    },{
+      'title': 'Плоский мир.<br>Раскраска',
+      'lines': 2,
+      'index': 1,
+    }
+  ];
 
   var flags = [
     {
@@ -275,15 +290,15 @@
       id: 'dark',
       length: 3
     }
-  ]
+  ];
 
   var columns = [
     [ 
       { id: "blue", books: blueCycle,
         relations: [
           {
-            d: `M82 0L82 291Q82 306 97 306L442 306Q457 306 457 291L457 -263
-            Q457 -278 472 -278L740 -278`,
+            d: `M82 0L82 291Q82 306 97 306L442 306Q457 306 457 291L457 -318
+            Q457 -333 472 -333L740 -333`,
             dash: true
           }      
         ] 
@@ -306,7 +321,8 @@
             d: 'M82 20L82 -46',
             dash: true
           },{
-            d: 'M20 400L-62 400Q-77 400 -77 385L-77 375',
+            //d: 'M20 400L-62 400Q-77 400 -77 385L-77 375',
+            d: 'M20 380L-20 380',
             dash: true
           }
           
@@ -314,7 +330,7 @@
       }
     ],[
       { id: "pink", books: [ pinkCycle[2] ] },
-      { id: "fuchsia", books: [ fuchsiaCycle[0], darkCycle[0] ],
+      { id: "fuchsia", books: fuchsiaCycle,
         relations: [
           {
             d: 'M20 140L-36 140',
@@ -326,7 +342,8 @@
         ]
       }
     ],[
-      { id: "pink", books: [ pinkCycle[0], pinkCycle[1], pinkCycle[3], pinkCycle[4], pinkCycle[5] ], 
+      { 
+        id: "pink", books: [ pinkCycle[0], pinkCycle[1], pinkCycle[3], pinkCycle[4], pinkCycle[5] ], 
         relations: [
           {
             d: 'M20 152L-90 152Q-105 152 -105 167L-105 210',
@@ -336,9 +353,12 @@
             dash: true
           }
         ]
+      },{ 
+        id: "lime", books: limeCycle, 
+        transparent: true
       }
     ],[
-      { id: "violet", books: [ violetCycle[0], violetCycle[1], violetCycle[2], violetCycle[3], violetCycle[4], darkCycle[2], violetCycle[5] ], 
+      { id: "violet", books: [ violetCycle[0], violetCycle[1], violetCycle[2], violetCycle[3], violetCycle[4], violetCycle[5], violetCycle[7], violetCycle[8] ], 
         relations: [
           {
             d: "M164 49L500 49",
@@ -354,6 +374,7 @@
       }
     ],[
       { id: "violet", books: [ violetCycle[6] ], 
+        transparent: true,
         relations: [
           {
             d: "M82 50L82 110Q82 125 67 125L-34 125",
@@ -361,13 +382,6 @@
           },{
             d: "M82 30L82 -25Q82 -40 97 -40L200 -40",
             dash: true
-          }
-        ]
-      },
-      { id: "violet", books: [ violetCycle[7] ],
-        relations: [
-          {
-            d: 'M20 54L-34 55'
           }
         ]
       }
@@ -386,12 +400,12 @@
             d: 'M20 40L-218 40',
             dash: true
           },{
-            d: 'M84 250L84 485Q84 500 69 500L-34 500'
+            d: 'M84 250L84 485Q84 500 69 500L-216 500'
           }
         ]
       }
     ]
-  ]
+  ];
 
   var map = [
     {
@@ -463,4 +477,4 @@
         }
       ]
     }
-  ]
+  ];

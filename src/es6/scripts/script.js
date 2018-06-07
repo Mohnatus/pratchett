@@ -30,6 +30,8 @@ window.addEventListener('DOMContentLoaded', function() {
     }
   })  
 
+  window.label = Label;
+
   for (let i = 0, len = flags.length; i < len; i++) {
     flags[i].addEventListener('mouseenter', function(e) {
       let cycle = this.dataset.cycle;

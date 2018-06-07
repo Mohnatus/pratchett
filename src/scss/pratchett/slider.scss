@@ -197,6 +197,7 @@ $xSliderControlsMarginTop: 25px;
       box-shadow: none;
       color: white;
       font-family: inherit;
+      cursor: pointer;
 
       &[data-status="buy"] {
         background: #8bc53f;

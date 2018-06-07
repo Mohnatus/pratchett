@@ -3,15 +3,16 @@
 }
 
 .pratchett-map {
-  position: absolute;
-  right: 52px; bottom: 0;
+  position: fixed;
+  right: 52px; top: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
   color: white;
   background: $darkViolet;
+  transform: translateY(-100%); 
 
-  transition: bottom 600ms;
+  transition: transform 600ms;
 
   z-index: 20;
 
@@ -21,7 +22,8 @@
   border-radius: 25px 25px 0 0;
 
   &[data-close] {
-    bottom: -220px;
+    transform: translateY(-60px); 
+    cursor: pointer;
   }
 
   &__close {
@@ -29,6 +31,11 @@
     width: 24px; height: 24px;
     top: 21px; right: 21px;
     fill: white;
+    cursor: pointer;
+
+    [data-close] & {
+      display: none;
+    }
   }
 
   .icon {
@@ -38,8 +45,12 @@
     overflow: visible;
   }
 
+  &__columns {
+    display: flex;
+  }
+
   &__column {
-    padding-right: 12px;
+    padding-right: 30px;
   }
 
   &__item, &__title {
@@ -59,14 +70,17 @@
   &__item[data-map="roman"] { fill: none; stroke: white; }
   &__item[data-map="start"] { fill: white; stroke: white; }
   &__item[data-map="picture"], &__item[data-map="science"] { fill: white; }
-  &__item[data-map="direct"] {
-    border-bottom: 2px solid white;
+  &__item[data-map="direct"]:before,
+  &__item[data-map="indirect"]:before {
+    content: '';
+    width: 31px;
     height: 0;
-    margin-bottom: 5px;
+    margin-right: 14px;
   }
-  &__item[data-map="indirect"] {
+  &__item[data-map="direct"]:before {
+    border-bottom: 2px solid white;
+  }
+  &__item[data-map="indirect"]:before {
     border-bottom: 2px dashed white;
-    height: 0;
-    margin-bottom: 5px;
   }
 }

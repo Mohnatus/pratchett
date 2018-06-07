@@ -1,0 +1,25 @@
+mixin pratchettMap
+  .pratchett-map
+    svg.pratchett-map__close: use(xlink:href="#close-icon")
+    .pratchett-map__block
+      .pratchett-map__title ПОДЦИКЛЫ
+      .pratchett-map__columns
+        for column in subcycles
+          .pratchett-map__column
+            for item in column 
+              .pratchett-map__item(data-map=item.id)
+                svg.icon: use(xlink:href="#circle-icon")
+                |!{item.name}
+        .pratchett-map__column
+          .pratchett-map__item(data-map="separate")
+            svg.icon: use(xlink:href="#star-icon")
+            |Отдельные романы
+          .pratchett-map__item(data-map="lime")
+            svg.icon: use(xlink:href="#circle-icon")
+            |Книги по теме
+    .pratchett-map__block
+      .pratchett-map__title СЮЖЕТНЫЕ СВЯЗИ
+      .pratchett-map__columns
+        .pratchett-map__column
+          .pratchett-map__item(data-map="direct") Прямые
+          .pratchett-map__item(data-map="indirect") Косвенные

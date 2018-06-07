@@ -26,7 +26,7 @@ $xSliderControlsMarginTop: 25px;
   &__wrapper {
     position: fixed;
     left: 50%; top: 50%;
-    z-index: 20;
+    z-index: 50;
     transform: translate(-50%, -50%);
     min-width: $xSliderWidth;
     padding: $xSliderPaddingTop $xSliderPaddingRight $xSliderPaddingBottom $xSliderPaddingLeft;
@@ -168,6 +168,7 @@ $xSliderControlsMarginTop: 25px;
       box-shadow: none;
       color: white;
       font-family: inherit;
+      cursor: pointer;
 
       &[data-status="buy"] {
         background: #8bc53f;

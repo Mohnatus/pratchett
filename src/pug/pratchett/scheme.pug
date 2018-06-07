@@ -1,22 +1,3 @@
-mixin map
-  .pratchett-map
-    svg.pratchett-map__close: use(xlink:href="#close-icon")
-    for column in map
-      .pratchett-map__column
-        if column.title
-          .pratchett-map__title !{column.title}
-        for item in column.items
-          .pratchett-map__item(data-map=item.id) 
-            if item.icon=="science"
-              svg.icon: use(xlink:href="#science-icon")
-            else if item.icon=="star"
-              svg.icon: use(xlink:href="#star-icon")
-            else if item.icon!="none"
-              svg.icon: use(xlink:href="#circle-icon")
-            |!{item.name}
-
-
-
 mixin pratchettScheme
   include icons.pug
   .pratchett-scheme
@@ -53,4 +34,4 @@ mixin pratchettScheme
                 svg.relations
                   each relation in cycle.relations
                     path(d=relation.d class=relation.dash ? "dashed" : "")
-    +map
+    

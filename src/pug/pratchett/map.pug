@@ -1,6 +1,13 @@
 mixin pratchettMap
-  .pratchett-map
-    svg.pratchett-map__close: use(xlink:href="#close-icon")
+  .pratchett-map(data-close)
+    svg.pratchett-map__close(width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg")
+
+      <g data-open-path>
+        <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+      </g>
+      <g data-close-path>
+        <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41" transform="translate(5 5)"/>
+      </g>
     .pratchett-map__block
       .pratchett-map__title ПОДЦИКЛЫ
       .pratchett-map__columns

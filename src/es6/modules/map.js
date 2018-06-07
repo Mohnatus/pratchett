@@ -2,21 +2,21 @@ export default function(selector) {
   let map = document.querySelector(selector);
   let close = map.querySelector(`${selector}__close`);
 
-  let isClose = false;
+  let isClose = map.hasAttribute('data-close');
 
   let closeMap = (event) => {
-    event.stopImmediatePropagation();
     isClose = true;
     map.setAttribute('data-close', '');
   };
 
-  let openMap = () => {
+  let openMap = (event) => {
     isClose = false;
     map.removeAttribute('data-close');
   };
 
-  close.addEventListener('click', closeMap);
-  map.addEventListener('click', () => {
+  map.addEventListener('click', (e) => {
+    e.stopPropagation();
     if (isClose) openMap();
+    else closeMap();
   });
 }

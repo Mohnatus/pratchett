@@ -13,13 +13,13 @@ $xSliderArrowOffset: 20px;
 $xSliderArrowFontSize: 40px;
 $xSliderArrowFontWeight: bold;
 
-$xSliderViewportHeight: 250px;
+$xSliderViewportHeight: 270px;
 
 $xSliderControlsHeight: 125px;
 $xSliderControlsMarginTop: 25px;
 
 .pratchett-card {
-  display: none;
+  visibility: hidden;
   
   color: black;
 
@@ -35,7 +35,7 @@ $xSliderControlsMarginTop: 25px;
   }
 
   &[data-shown] {
-    display: block;
+    visibility: visible;
   }
 
   &__close {
@@ -62,13 +62,28 @@ $xSliderControlsMarginTop: 25px;
     height: $xSliderControlsHeight;
     margin-top: $xSliderControlsMarginTop;
 
-    display: flex;
-    justify-content: center;
-
-    cursor: pointer;
+    .controls {
+      height: 100%;
+      width: 400px;
+      margin: auto;
+    }
 
     [data-active] {
       color: red;
+    }
+
+    [data-viewport] {
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
+
+    [data-slides] {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      top: 0; left: 0;
     }
   }
 
@@ -79,11 +94,13 @@ $xSliderControlsMarginTop: 25px;
 .book-card {
   font-size: 14px;
   display: flex;
+  line-height: 1.2;
 
   &__img {
     width: 140px;
     height: 225px;
     margin-right: 20px;
+    flex-shrink: 0;
 
     img {
       max-width: 100%;
@@ -155,6 +172,11 @@ $xSliderControlsMarginTop: 25px;
 
   }
 
+  &__annotation {
+    max-height: 3.6em;
+    overflow: hidden;
+  }
+
   &__button {
     button {
       height: 30px;
@@ -196,12 +218,22 @@ $xSliderControlsMarginTop: 25px;
 .pratchett-control {
   width: 83px;
   height: 123px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  cursor: pointer;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    filter: grayscale(100%);
+  }
 
   &[data-active], &:hover {
-    opacity: 0.6;
+    img {
+      filter: grayscale(0%);
+    }
+    
   }
 }
 

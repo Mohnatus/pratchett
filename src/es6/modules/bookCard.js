@@ -1,13 +1,22 @@
+import slider from './simpleSlider.js';
 
-let card;
+let card;  
 
 let initCard = function() {
   card = {};
   card.$ = document.querySelector('[data-book-card]');
-
-  card.close = card.$.querySelector('[data-close]');
-  card.close.addEventListener('click', function() {
+  card.close = function() {
+    if (!card.isOpen) return;
     card.$.removeAttribute('data-shown');
+    card.isOpen = false;
+  }
+  card.show = function() {
+    card.$.setAttribute('data-shown', '');
+    card.isOpen = true;
+  }
+  card.$close = card.$.querySelector('[data-close]');
+  card.$close.addEventListener('click', function() {
+    card.close();
   });
 
   card.book = card.$.querySelector('.book-card');
@@ -24,11 +33,24 @@ let initCard = function() {
   card.ratingCount = card.rating.querySelector('.count');
   card.yearBlock = card.book.querySelector('.book-card__year');
   card.year = card.yearBlock.querySelector('.year');
-  //card.description = card.book.querySelector('.book-card__annotation');
+  card.description = card.book.querySelector('.book-card__annotation');
 
-  card.controls = card.$.querySelector('[data-controls]');
+  card.controlsBlock = card.$.querySelector('[data-controls]');
+  card.controlsSlider = new slider(card.controlsBlock.querySelector('[data-simple-slider]'));
+  card.controls = card.controlsBlock.querySelector('[data-slides]');
 
   card.currentControl = null;
+
+  card.isOpen = false;
+
+  document.addEventListener('click', (e) => {
+    if (card.isOpen && !card.$.contains(e.target)) {
+      card.close();
+    }
+  });
+  card.$.addEventListener('click', (e) => {
+    //e.stopPropagation();
+  });
 };
 
 let setImage = function(img) {
@@ -84,12 +106,21 @@ let setId = function(id) {
   card.book.setAttribute('data-element', id);
 };
 
-let setButton = function(button) {
-  card.buttonBlock.innerHTML = button;
-}
+let setButton = function(data) {
+  card.buttonBlock.innerHTML = data.button;
+  let button = card.buttonBlock.querySelector('button');
+  button.addEventListener('click', (e) => {
+    if (button.getAttribute('data-status') == 'buy') {
+      let id = button.getAttribute('data-product');
+      window.add2Basket(button, id, () => {
+        data.button = card.buttonBlock.innerHTML;
+      });
+    }
+  }) 
+};
 
 let setDescription = function(description) {
-  card.description.textContent = description;
+  card.description.innerHTML = description;
 }
 
 let setData = function(data) {
@@ -101,9 +132,9 @@ let setData = function(data) {
   setYear(data.year);
   setPublisher(data.publisher);
   setPrice(data.price);
-  //setDescription(data.description);
+  setDescription(data.description);
   setId(data.id);
-  setButton(data.button);
+  setButton(data);
 };
 
 let setControls = function(slides, index) {
@@ -120,12 +151,14 @@ let setControls = function(slides, index) {
   }
   card.controls.innerHTML = "";
   card.controls.appendChild(fr);
+  card.controlsSlider.update(index);
 }
 
 let createControl = function(img) {
   let el = document.createElement('div');
   el.classList.add('pratchett-control');
-  el.style.backgroundImage = `url(${img})`;
+  let $img = `<img src=${img} />`;
+  el.innerHTML = $img;
   return el;
 }
 
@@ -138,6 +171,7 @@ let activateControl = function(control) {
 let updateBigCard = function(slide) {
   setData(slide);
 }
+
 
 
 export default function(slides, index) {
@@ -156,5 +190,5 @@ export default function(slides, index) {
   setData(slideData);
   setControls(slides, index);
 
-  card.$.setAttribute('data-shown', '');
+  card.show();
 }

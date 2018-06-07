@@ -113,6 +113,11 @@ body {
   color: white;
 }
 
+main {
+  background: $darkViolet;
+  padding-bottom: 30px;
+}
+
 
 @import 'wave.scss';
 @import 'header.scss';

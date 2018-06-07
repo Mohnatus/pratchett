@@ -67,9 +67,7 @@
     &__item[data-map="#{$cycle}"] { fill: $color; } 
   }
 
-  &__item[data-map="roman"] { fill: none; stroke: white; }
-  &__item[data-map="start"] { fill: white; stroke: white; }
-  &__item[data-map="picture"], &__item[data-map="science"] { fill: white; }
+  &__item[data-map="separate"] { fill: white; stroke: white; }
   &__item[data-map="direct"]:before,
   &__item[data-map="indirect"]:before {
     content: '';

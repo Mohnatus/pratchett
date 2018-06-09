@@ -18,7 +18,6 @@ mixin pratchettHeader
       img(src=imgUrl+'title.svg' width="1190" height="216")
     .pratchett-header__world.text-center
       .turtle
-        +compass
         .flags
           for block in flags
             .flags__block
@@ -27,4 +26,5 @@ mixin pratchettHeader
                 .flag(data-index=i data-cycle=block.id data-cycle-item)
                   svg.flag-icon: use(xlink:href="#flag-icon")
                   -i++
+        +compass
 

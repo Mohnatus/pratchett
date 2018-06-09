@@ -24,7 +24,27 @@
     position: absolute;
     left: -46px;
     bottom: -38px;
-    animation: compassAnimation infinite 40s;
+    cursor: pointer;
+    z-index: 5;
+    
+    &:hover {
+      svg {
+        path {
+          animation-name: compassHover;
+          animation-duration: 10s;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+          animation-fill-mode: forwards;
+        }
+      }
+    }
+
+    svg {
+      animation-name: compassAnimation;
+      animation-iteration-count: infinite;
+      animation-duration: 40s;
+      transform-origin: 75px 81px;
+    }
   }
 
   @keyframes compassAnimation {
@@ -45,6 +65,30 @@
     94% { transform: rotate(390deg); }
     100% { transform: rotate(360deg); }
   }
+
+  @keyframes compassHover {
+    from { fill: white; }
+    10% { fill: $blueCycle; }
+    20% { fill: $greenCycle; }
+    30% { fill: $orangeCycle; }
+    40% { fill: $pinkCycle; }
+    50% { fill: $fuchsiaCycle; }
+    60% { fill: $violetCycle; }
+    70% { fill: $redCycle; }
+    80% { fill: $aquaCycle; }
+    90% { fill: $limeCycle; }
+    100% { fill: white; }
+  }
+
+  &[data-cycle="blue"] { .compass path {fill: $blueCycle; }}
+  &[data-cycle="green"] { .compass path {fill: $greenCycle; }}
+  &[data-cycle="red"] { .compass path {fill: $redCycle; }}
+  &[data-cycle="violet"] { .compass path {fill: $violetCycle; }}
+  &[data-cycle="orange"] { .compass path {fill: $orangeCycle; }}
+  &[data-cycle="aqua"] { .compass path {fill: $aquaCycle; }}
+  &[data-cycle="pink"] { .compass path {fill: $pinkCycle; }}
+  &[data-cycle="fuchsia"] { .compass path {fill: $fuchsiaCycle; }}
+  &[data-cycle="lime"] { .compass path {fill: $limeCycle; }}
 
   .book {
     position: absolute;

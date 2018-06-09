@@ -23,9 +23,12 @@ window.addEventListener('DOMContentLoaded', function() {
       flags[i].addEventListener('mouseenter', function(e) {
         let cycle = this.dataset.cycle;
         let index = this.dataset.index;
+        console.log(cycle, index)
+        turtle.setAttribute('data-cycle', cycle);
         Label.show(cycle, index);
       });
       flags[i].addEventListener('mouseleave', function(e) {
+        turtle.setAttribute('data-cycle', '');
         Label.hide();
       });
     }

@@ -21,7 +21,9 @@ let slider = {
 
   onChange: null,
 
-  reset: false
+  reset: false,
+  hideNext: false,
+  hidePrev: false
 };
 
 slider.selectors = {
@@ -87,7 +89,16 @@ slider.setActive = function(index) {
   this.currentSlide.setAttribute(this.activeAttr, '');
 
   this.setCenterSlide();
+  this.handleControls();
 };
+
+slider.handleControls = function() {
+  if (this.currentSlideIndex == 0) this.hidePrevControl();
+  else if (this.hidePrev) this.showPrevControl();
+
+  if (this.currentSlideIndex == this.slides.length - 1) this.hideNextControl();
+  else if (this.hideNext) this.showNextControl();
+}
 
 slider.setCenterSlide = function() {
   if (this.reset) {
@@ -144,6 +155,26 @@ slider.resetSlider = function() {
   this.prev = this.$.removeChild(this.prev);
   this.next = this.$.removeChild(this.next);
   this.reset = true;
+};
+
+slider.hidePrevControl = function() {
+  this.prev.style.visibility = "hidden";
+  this.hidePrev = true;
+};
+
+slider.hideNextControl = function() {
+  this.next.style.visibility = "hidden";
+  this.hideNext = true;
+};
+
+slider.showPrevControl = function() {
+  this.prev.style.visibility = "visible";
+  this.hidePrev = false;
+};
+
+slider.showNextControl = function() {
+  this.next.style.visibility = "visible";
+  this.hideNext = false;
 };
 
 slider.setSlider = function() {

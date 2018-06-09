@@ -4,20 +4,21 @@ mixin pratchettSlider
       svg.pratchett-card__close(data-close): use(xlink:href="#close-icon")
       +bookCard
       
-      .pratchett-card__controls(data-controls)
+      .pratchett-card__controls
         .controls(data-slider="pratchett")
           div(data-prev)
-            <svg width="22" height="45" viewBox="0 0 22 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <line y1="-0.5" x2="30.8901" y2="-0.5" transform="matrix(-0.620717 -0.784034 0.428706 -0.903444 19.7627 44)" stroke="#CCCCCC"/>
-              <line y1="-0.5" x2="28.8495" y2="-0.5" transform="matrix(-0.727917 0.685666 -0.333601 -0.942714 21 0)" stroke="#CCCCCC"/>
+            <svg width="22" height="45" viewBox="0 0 22 45" fill="none" xmlns="http://www.w3.org/2000/svg" >
+              <line y1="-0.5" x2="30.8901" y2="-0.5" transform="matrix(-0.620717 -0.784034 0.428706 -0.903444 19.7627 44)" />
+              <line y1="-0.5" x2="28.8495" y2="-0.5" transform="matrix(-0.727917 0.685666 -0.333601 -0.942714 21 0)" />
             </svg>
-          div(data-next)
-            <svg width="22" height="45" viewBox="0 0 22 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <line y1="-0.5" x2="30.8901" y2="-0.5" transform="matrix(0.620717 0.784034 -0.428706 0.903444 2.2373 1)" stroke="#CCCCCC"/>
-              <line y1="-0.5" x2="28.8495" y2="-0.5" transform="matrix(0.727917 -0.685666 0.333601 0.942714 1 45)" stroke="#CCCCCC"/>
-            </svg>
+          
           div(data-viewport)
             div(data-slides)
+          div(data-next)
+            <svg width="22" height="45" viewBox="0 0 22 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line y1="-0.5" x2="30.8901" y2="-0.5" transform="matrix(0.620717 0.784034 -0.428706 0.903444 2.2373 1)"/>
+              <line y1="-0.5" x2="28.8495" y2="-0.5" transform="matrix(0.727917 -0.685666 0.333601 0.942714 1 45)" />
+            </svg>
 
 mixin bookCard
   .pratchett-card__book.book-card

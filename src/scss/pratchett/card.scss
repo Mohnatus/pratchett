@@ -1,0 +1,70 @@
+$xSliderWidth: 660px;
+$xSliderPaddingLeft: 20px;
+$xSliderPaddingRight: 20px;
+$xSliderPaddingTop: 30px;
+$xSliderPaddingBottom: 35px;
+$xSliderBorderRadius: 20px;
+$xSliderBackground: white;
+
+$xSliderLeftArrowContent: '<';
+$xSliderRightArrowContent: '>';
+$xSliderArrowTop: 50%;
+$xSliderArrowOffset: 20px;
+$xSliderArrowFontSize: 40px;
+$xSliderArrowFontWeight: bold;
+
+$xSliderViewportHeight: 270px;
+
+$xSliderControlsHeight: 150px;
+$xSliderControlsMarginTop: 25px;
+
+
+.pratchett-card {
+  visibility: hidden;
+  
+  color: black;
+
+  &__wrapper {
+    position: fixed;
+    left: 50%; top: 50%;
+    z-index: 50;
+    transform: translate(-50%, -50%);
+    min-width: $xSliderWidth;
+    padding: $xSliderPaddingTop $xSliderPaddingRight $xSliderPaddingBottom $xSliderPaddingLeft;
+    border-radius: $xSliderBorderRadius;
+    background: $xSliderBackground;
+  }
+
+  &[data-shown] {
+    visibility: visible;
+  }
+
+  &__close {
+    position: absolute;
+    top: 10px; right: 10px;
+    cursor: pointer;
+    width: 24px; height: 24px;
+    fill: rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      fill: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  &__book {
+    width: 100%;
+    height: $xSliderViewportHeight;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__controls {
+    width: 100%;
+    height: $xSliderControlsHeight;
+    margin-top: $xSliderControlsMarginTop;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+
+}

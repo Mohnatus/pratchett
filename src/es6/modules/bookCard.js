@@ -13,6 +13,7 @@ let bookCard = {
   buttonBlock: null,
   rating: null,
   ratingCount: null,
+  ratingVote: null,
   yearBlock: null,
   year: null,
   description: null,
@@ -30,6 +31,7 @@ bookCard.selectors = {
   buttonBlock: '.book-card__button',
   rating: '.book-rating',
   ratingCount: '.count',
+  ratingVote: '.vote',
   yearBlock: '.book-card__year',
   year: '.year',
   description: '.book-card__annotation',
@@ -51,6 +53,8 @@ bookCard.init = function(config) {
   this.buttonBlock = this.$.querySelector(bookCard.selectors.buttonBlock);
   this.rating = this.$.querySelector(bookCard.selectors.rating);
   this.ratingCount = this.rating.querySelector(bookCard.selectors.ratingCount);
+  this.ratingVote = this.rating.querySelector(bookCard.selectors.ratingVote);
+  this.ratingVote = this.rating.querySelector(bookCard.selectors.ratingVote);
   this.yearBlock = this.$.querySelector(bookCard.selectors.yearBlock);
   this.year = this.yearBlock.querySelector(bookCard.selectors.year);
   this.description = this.$.querySelector(bookCard.selectors.description);
@@ -79,10 +83,11 @@ bookCard.setAuthor = function(author) {
   } 
 };
 
-bookCard.setRating = function(rating) {
+bookCard.setRating = function(rating, votes) {
   rating = rating || 0;
   this.rating.setAttribute('data-rating', Math.ceil(rating));
   this.ratingCount.textContent = rating;
+  this.ratingVote.textContent = votes;
 };
 
 bookCard.setYear = function(year) {
@@ -133,7 +138,7 @@ bookCard.setData = function(data) {
   this.setImage(data.img);
   this.setTitle(data.title);
   this.setAuthor(data.author);
-  this.setRating(data.rating);
+  this.setRating(data.rating, data.votes);
   this.setYear(data.year);
   this.setPublisher(data.publisher);
   this.setPrice(data.price);

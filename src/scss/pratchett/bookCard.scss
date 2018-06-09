@@ -66,16 +66,16 @@
       fill: #e6e6e6;
     }
 
-    &[data-rating="1"] .rating__star:nth-of-type(-n + 1),
-    &[data-rating="2"] .rating__star:nth-of-type(-n + 2),
-    &[data-rating="3"] .rating__star:nth-of-type(-n + 3),
-    &[data-rating="4"] .rating__star:nth-of-type(-n + 4),
-    &[data-rating="5"] .rating__star:nth-of-type(-n + 5),
-    &[data-rating="6"] .rating__star:nth-of-type(-n + 6),
-    &[data-rating="7"] .rating__star:nth-of-type(-n + 7),
-    &[data-rating="8"] .rating__star:nth-of-type(-n + 8),
-    &[data-rating="9"] .rating__star:nth-of-type(-n + 9),
-    &[data-rating="10"] .rating__star:nth-of-type(-n + 10), {
+    &[data-rating="1"] .book-rating__star:nth-of-type(-n + 1),
+    &[data-rating="2"] .book-rating__star:nth-of-type(-n + 2),
+    &[data-rating="3"] .book-rating__star:nth-of-type(-n + 3),
+    &[data-rating="4"] .book-rating__star:nth-of-type(-n + 4),
+    &[data-rating="5"] .book-rating__star:nth-of-type(-n + 5),
+    &[data-rating="6"] .book-rating__star:nth-of-type(-n + 6),
+    &[data-rating="7"] .book-rating__star:nth-of-type(-n + 7),
+    &[data-rating="8"] .book-rating__star:nth-of-type(-n + 8),
+    &[data-rating="9"] .book-rating__star:nth-of-type(-n + 9),
+    &[data-rating="10"] .book-rating__star:nth-of-type(-n + 10), {
       fill: #ffca05;
     }
 

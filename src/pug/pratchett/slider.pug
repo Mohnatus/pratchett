@@ -31,18 +31,18 @@ mixin bookCard
       p.book-card__author
       .book-rating(data-rating="")
         .book-rating__title Рейтинг: #[b.count]
-        .book-rating__vote
+        .book-rating__vote (#[span.vote])
         .book-rating__stars
-          .book-rating__star
-          .book-rating__star
-          .book-rating__star
-          .book-rating__star
-          .book-rating__star
-          .book-rating__star
-          .book-rating__star
-          .book-rating__star
-          .book-rating__star
-          .book-rating__star
+          svg.book-rating__star: use(xlink:href="#star-icon")
+          svg.book-rating__star: use(xlink:href="#star-icon")
+          svg.book-rating__star: use(xlink:href="#star-icon")
+          svg.book-rating__star: use(xlink:href="#star-icon")
+          svg.book-rating__star: use(xlink:href="#star-icon")
+          svg.book-rating__star: use(xlink:href="#star-icon")
+          svg.book-rating__star: use(xlink:href="#star-icon")
+          svg.book-rating__star: use(xlink:href="#star-icon")
+          svg.book-rating__star: use(xlink:href="#star-icon")
+          svg.book-rating__star: use(xlink:href="#star-icon")
       p.book-card__year Год издания: #[span.year]
       p.book-card__publisher Издательство: #[span.publisher]
       p.book-card__price Цена: #[b #[span.price]&#8399;]

@@ -21,6 +21,7 @@ $xSliderControlsMarginTop: 25px;
 
 .pratchett-card {
   visibility: hidden;
+  opacity: 0;
   
   color: black;
 
@@ -37,6 +38,7 @@ $xSliderControlsMarginTop: 25px;
 
   &[data-shown] {
     visibility: visible;
+    opacity: 1;
   }
 
   &__close {

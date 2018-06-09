@@ -5,6 +5,15 @@ mixin pratchettScheme
     +bigWave(2)
     +reversiveSmallWave(1)
     +reversiveBigWave(3)
+
+    -var stars = [16,16,9,16,16,16,16];
+
+    -var i = 0
+    while i < 7
+      svg.star(data-star=(i+1) width=stars[i] height=stars[i]): use(xlink:href="#star-icon")
+      -i++
+
+    
     .cycles
       each column, index in columns
         .cycles__column(data-column=index+1)

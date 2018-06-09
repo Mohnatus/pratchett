@@ -115,11 +115,12 @@ body {
 
 main {
   background: $darkViolet;
-  padding-bottom: 30px;
+  padding-bottom: 60px;
 }
 
 
 @import 'wave.scss';
+@import 'stars.scss';
 @import 'header.scss';
 @import 'card.scss';
 @import 'bookCard.scss';

@@ -1,0 +1,64 @@
+$headerStarsLeft: (
+  1: (202,102),
+  2: (47,361),
+  3: (214,491),
+  4: (369,465),
+  5: (158,784),
+  6: (647,245),
+  7: (842,850)
+);
+$headerStarsRight: (
+  8: (273,211),
+  9: (409,287),
+  10: (180,460),
+  11: (335,644),
+  12: (448,810)
+);
+
+$schemeStarsLeft: (
+  1: (82,687),
+  2: (221,435),
+  3: (776,48),
+);
+
+$schemeStarsRight: (
+  4: (657,928),
+  5: (585,154),
+  6: (157,737),
+  7: (128,240),
+);
+
+.star {
+  position: absolute;
+  fill: white;
+
+  .pratchett-header & {
+    @each $index, $coords in $headerStarsLeft {
+      &[data-star="#{$index}"] { 
+        left: nth($coords, 1) * 1px;
+        top: nth($coords, 2) * 1px;
+      } 
+    }
+    @each $index, $coords in $headerStarsRight {
+      &[data-star="#{$index}"] { 
+        right: nth($coords, 1) * 1px;
+        top: nth($coords, 2) * 1px;
+      } 
+    }
+  }
+
+  .pratchett-scheme & {
+    @each $index, $coords in $schemeStarsLeft {
+      &[data-star="#{$index}"] { 
+        left: nth($coords, 1) * 1px;
+        top: nth($coords, 2) * 1px;
+      } 
+    }
+    @each $index, $coords in $schemeStarsRight {
+      &[data-star="#{$index}"] { 
+        right: nth($coords, 1) * 1px;
+        top: nth($coords, 2) * 1px;
+      } 
+    }
+  }
+}

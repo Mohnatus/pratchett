@@ -161,32 +161,4 @@ slider.moveOff = function() {
   this.$.removeAttribute('data-move');
 };
 
-
-
-
-
-
-
-
-
-
-
-
-// slider.prototype.toNextSlide = function() {
-//   console.log('to next', leftSlide, this.currentLeftIndex, this.leftLimit);
-//   this.currentLeftIndex = Math.min(this.currentLeftIndex + 1, this.leftLimit);
-  
-//   let leftSlide = this.slides[this.currentLeftIndex];
-//   console.log(this.currentLeftIndex, leftSlide)
-//   this.move(leftSlide.diff);
-// };
-
-// slider.prototype.toPrevSlide = function() {
-
-//   let nextIndex = this.currentSlideIndex - 1;
-//   if (nextIndex < 0) nextIndex = this.slides.length - 1;
-//   this.animate(nextIndex, 'left');
-// };
-
-
 export default slider;

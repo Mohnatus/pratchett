@@ -109,7 +109,6 @@ card.activateElement = function(cycle, index) {
 }
 
 card.updateCard = function(cycle, index) {
-  console.log('update', cycle, index)
   let data = this.sets[cycle].items[index];
   this.bookCard.setData(data);
 };

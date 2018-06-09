@@ -142,37 +142,4 @@ bookCard.setData = function(data) {
   this.setButton(data);
 };
 
-
-
-// let activateControl = function(control) {
-//   card.currentControl ? card.currentControl.removeAttribute('data-active') : null;
-//   card.currentControl = control;
-//   control.setAttribute('data-active', '');
-// }
-
-// let updateBigCard = function(slide) {
-//   setData(slide);
-// }
-
-
-
-// export default function(slides, index) {
-//   if (!slides) return;
-
-//   index = index || 0;
-//   if (index >= slides.length) index = 0;
-
-//   if (!card) {
-//     initCard();
-//   }
-
-//   let slideData = slides[index];
-//   if (!slideData) return;
-
-//   setData(slideData);
-//   setControls(slides, index);
-
-//   card.show();
-// }
-
 export default bookCard;

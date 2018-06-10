@@ -1,8 +1,9 @@
 import Map from '../modules/map.js';
-import data from '../modules/testData.js';
+//import data from '../modules/testData.js';
 import card from '../modules/card.js';
 import Label from '../modules/cycles.js';
 
+var data = window.pratchettData;
 
 window.add2Basket = function add2Basket(btn, id, callback) {
   btn.setAttribute('data-status', 'in-basket');

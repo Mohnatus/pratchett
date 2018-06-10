@@ -26,17 +26,16 @@
     bottom: -38px;
     cursor: pointer;
     z-index: 5;
+    fill: white;
+
+    svg, path { fill: inherit; }
     
     &:hover {
-      svg {
-        path {
-          animation-name: compassHover;
-          animation-duration: 10s;
-          animation-iteration-count: infinite;
-          animation-timing-function: linear;
-          animation-fill-mode: forwards;
-        }
-      }
+      animation-name: compassHover;
+      animation-duration: 10s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
     }
 
     svg {
@@ -80,15 +79,24 @@
     100% { fill: white; }
   }
 
-  &[data-cycle="blue"] { .compass path {fill: $blueCycle; }}
-  &[data-cycle="green"] { .compass path {fill: $greenCycle; }}
-  &[data-cycle="red"] { .compass path {fill: $redCycle; }}
-  &[data-cycle="violet"] { .compass path {fill: $violetCycle; }}
-  &[data-cycle="orange"] { .compass path {fill: $orangeCycle; }}
-  &[data-cycle="aqua"] { .compass path {fill: $aquaCycle; }}
-  &[data-cycle="pink"] { .compass path {fill: $pinkCycle; }}
-  &[data-cycle="fuchsia"] { .compass path {fill: $fuchsiaCycle; }}
-  &[data-cycle="lime"] { .compass path {fill: $limeCycle; }}
+  @each $cycle, $color in $cyclesColors {
+    .flags__block[data-area="#{$cycle}"]:hover ~ .compass {
+      fill: $color;
+      transition: fill 500ms;
+    }
+  }
+
+  
+
+  // &[data-cycle="blue"] { .compass path {fill: $blueCycle; }}
+  // &[data-cycle="green"] { .compass path {fill: $greenCycle; }}
+  // &[data-cycle="red"] { .compass path {fill: $redCycle; }}
+  // &[data-cycle="violet"] { .compass path {fill: $violetCycle; }}
+  // &[data-cycle="orange"] { .compass path {fill: $orangeCycle; }}
+  // &[data-cycle="aqua"] { .compass path {fill: $aquaCycle; }}
+  // &[data-cycle="pink"] { .compass path {fill: $pinkCycle; }}
+  // &[data-cycle="fuchsia"] { .compass path {fill: $fuchsiaCycle; }}
+  // &[data-cycle="lime"] { .compass path {fill: $limeCycle; }}
 
   .book {
     position: absolute;
@@ -113,21 +121,44 @@
       &:before, &:after {
         content: '';
         position: absolute;
-        opacity: 0;
+        opacity: 0.2;
         z-index: 1;
-        width: 30px; height: 30px;
+        background: red;
+
+      }
+
+      &:hover {
+        &:before, &:after {
+          opacity: 0.8;
+        }
       }
 
       @each $cycle, $area in $areasPositions {
         &[data-area="#{$cycle}"] {
 
           @each $pseudo, $coords in $area {
-            
+            @if $pseudo == 'before' {
+              &:before {
+                left: nth($coords, 1);
+                top: nth($coords, 2);
+                width: nth($coords, 3);
+                height: nth($coords, 4);
+                border-radius: nth($coords, 5);
+                transform: rotate(nth($coords, 6));
+              }
+            }
+            @else {
+              &:after {
+                left: nth($coords, 1);
+                top: nth($coords, 2);
+                width: nth($coords, 3);
+                height: nth($coords, 4);
+                border-radius: nth($coords, 5);
+                transform: rotate(nth($coords, 6));
+              }
+            }
           }
-          &:before {
-            top: ; left: 230px;
-            background: red;
-          }
+          
         }
       }
 

@@ -87,8 +87,31 @@ $flagsPositions: (
 
 $areasPositions: (
   blue: (
-    before: (0, 0),
-    after: (0, 0)
+    before: (246px, 18px, 112px, 174px, 105px 41px 73px 87px / 104px 86px 78px 58px, 30deg),
+    after: (189px, 127px, 162px, 102px, 95px 112px 180px 79px/ 84px, -19deg)
+  ),
+  green: (
+    before: (410px, 31px, 62px, 176px, 105px 41px 73px 87px / 104px 86px 78px 58px, -35deg),
+    after: (401px, 142px, 75px, 87px, 36px/63px, 19deg)
+  ),
+  orange: (
+    before: (448px, 4px, 104px, 124px, 19px 20px 51px 155px / 35px 86px 64px 172px, -9deg)
+  ),
+  pink: (
+    before: (595px, 40px, 62px, 176px, 105px 41px 73px 87px / 104px 86px 78px 58px, -35deg),
+    after: (581px, 137px, 121px, 195px, 16px 41px 73px 87px / 104px 86px 78px 58px, -35deg)
+  ),
+  fuchsia: (
+    before: (495px, 175px, 62px, 106px, 105px 41px 73px 87px / 104px 86px 78px 58px, -35deg)
+  ),
+  lime: (
+    before: (221px, 243px, 73px, 111px, 105px 41px 73px 87px / 104px 86px 78px 58px, 16deg)
+  ),
+  violet: (
+    before: (357px, 398px, 142px, 231px, 105px 10px 104px 10px/104px 10px 164px 10px, 54deg)
+  ),
+  red: (
+    before: (331px, 403px, 104px, 49px, 105px 41px 73px 87px / 104px 86px 78px 58px, -33deg)
   )
 );
 

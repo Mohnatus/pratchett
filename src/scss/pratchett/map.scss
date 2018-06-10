@@ -34,16 +34,19 @@
     cursor: pointer;
 
     [data-open-path] {
-      display: none;
+      opacity: 0;
+    }
+
+    [data-close-path] {
+      transition: opacity 1s;
     }
 
     [data-close] & {
-      //display: none;
       [data-open-path] {
-        display: block;
+        opacity: 1;
       }
       [data-close-path] {
-        display: none;
+        opacity: 0;
       }
     }
   }
@@ -93,6 +96,6 @@
     border-bottom: 2px solid white;
   }
   &__item[data-map="indirect"]:before {
-    border-bottom: 2px dashed white;
+    border-bottom: 2px dotted white;
   }
 }

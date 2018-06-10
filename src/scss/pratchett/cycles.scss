@@ -10,10 +10,12 @@
   border-radius: 12px;
   color: white;
   cursor: pointer;
+  transition: background-color 500ms, color 500ms;
+  transition-timing-function: linear;
 
   @each $cycle, $color in $cyclesColors {
     &[data-cycle="#{$cycle}"] {
-      background: $color;
+      background-color: $color;
     }
   }
 

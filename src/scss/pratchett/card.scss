@@ -31,6 +31,7 @@ $xSliderControlsMarginTop: 25px;
     z-index: 50;
     transform: translate(-50%, -50%);
     min-width: $xSliderWidth;
+    max-width: 1000px;
     padding: $xSliderPaddingTop $xSliderPaddingRight $xSliderPaddingBottom $xSliderPaddingLeft;
     border-radius: $xSliderBorderRadius;
     background: $xSliderBackground;

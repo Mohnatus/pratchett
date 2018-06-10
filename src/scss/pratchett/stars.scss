@@ -1,62 +1,77 @@
-$headerStarsLeft: (
-  1: (202,102),
-  2: (47,361),
-  3: (214,491),
-  4: (369,465),
-  5: (158,784),
-  6: (647,245),
-  7: (842,850)
-);
-$headerStarsRight: (
-  8: (273,211),
-  9: (409,287),
-  10: (180,460),
-  11: (335,644),
-  12: (448,810)
+$headerStars: (
+  1: (202,100),
+  2: (47,359),
+  3: (214,489),
+  4: (369,463),
+  5: (158,782),
+  6: (647,243),
+  7: (842,848),
+  8: (1639,209),
+  9: (1499,285),
+  10: (1728,458),
+  11: (1573,642),
+  12: (1460,808)
 );
 
-$schemeStarsLeft: (
+$schemeStars: (
   1: (82,687),
   2: (221,435),
   3: (776,48),
+  4: (1246,928),
+  5: (1323,154),
+  6: (1751,737),
+  7: (1780,240),
 );
 
-$schemeStarsRight: (
-  4: (657,928),
-  5: (585,154),
-  6: (157,737),
-  7: (128,240),
-);
+.pratchett-header__stars,
+.pratchett-scheme__stars {
+  position: absolute;
+  width: 1920px;
+  top: 0; bottom: 0; 
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-.star {
+.sky-star {
   position: absolute;
   fill: white;
 
+  animation-name: star;
+  animation-iteration-count: infinite;
+  animation-duration: 5000ms;
+
+  &[data-star="1"],
+  &[data-star="4"],
+  &[data-star="7"],
+  &[data-star="10"] { animation-delay: 1100ms; }
+
+  &[data-star="11"] { animation-delay: 2200ms; }
+
+  &[data-star="3"],
+  &[data-star="6"],
+  &[data-star="9"] { animation-delay: 3300ms; }
+
+  transition: transform 800ms;
+
+  @keyframes star {
+    from { opacity: 1; }
+    50% { opacity: 0.2; }
+    to { opacity: 1; }
+  }
+
   .pratchett-header & {
-    @each $index, $coords in $headerStarsLeft {
+    @each $index, $coords in $headerStars {
       &[data-star="#{$index}"] { 
         left: nth($coords, 1) * 1px;
-        top: nth($coords, 2) * 1px;
-      } 
-    }
-    @each $index, $coords in $headerStarsRight {
-      &[data-star="#{$index}"] { 
-        right: nth($coords, 1) * 1px;
         top: nth($coords, 2) * 1px;
       } 
     }
   }
 
   .pratchett-scheme & {
-    @each $index, $coords in $schemeStarsLeft {
+    @each $index, $coords in $schemeStars {
       &[data-star="#{$index}"] { 
         left: nth($coords, 1) * 1px;
-        top: nth($coords, 2) * 1px;
-      } 
-    }
-    @each $index, $coords in $schemeStarsRight {
-      &[data-star="#{$index}"] { 
-        right: nth($coords, 1) * 1px;
         top: nth($coords, 2) * 1px;
       } 
     }

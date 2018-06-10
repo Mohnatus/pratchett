@@ -7,12 +7,12 @@ mixin pratchettHeader
     +reversiveSmallWave(2)
     +reversiveBigWave(2)
 
-    -var stars = [ 16, 16, 9, 9, 16, 9, 16, 9, 16, 16, 16, 16 ];
-
-    -var i = 0
-    while i < 12
-      svg.star(data-star=(i+1) width=stars[i] height=stars[i]): use(xlink:href="#star-icon")
-      -i++
+    .pratchett-header__stars
+      -var stars = [ 16, 16, 9, 9, 16, 9, 16, 9, 16, 16, 16, 16 ];
+      -var i = 0
+      while i < 12
+        svg.sky-star(data-star=(i+1) width=stars[i] height=stars[i]): use(xlink:href="#star-icon")
+        -i++
 
     h1.pratchett-header__strip.text-center
       img(src=imgUrl+'title.svg' width="1190" height="216")

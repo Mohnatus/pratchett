@@ -27,6 +27,7 @@
     cursor: pointer;
     z-index: 5;
     fill: white;
+    transition: fill 1000ms;
 
     svg, path { fill: inherit; }
     
@@ -82,21 +83,9 @@
   @each $cycle, $color in $cyclesColors {
     .flags__block[data-area="#{$cycle}"]:hover ~ .compass {
       fill: $color;
-      transition: fill 500ms;
+      
     }
   }
-
-  
-
-  // &[data-cycle="blue"] { .compass path {fill: $blueCycle; }}
-  // &[data-cycle="green"] { .compass path {fill: $greenCycle; }}
-  // &[data-cycle="red"] { .compass path {fill: $redCycle; }}
-  // &[data-cycle="violet"] { .compass path {fill: $violetCycle; }}
-  // &[data-cycle="orange"] { .compass path {fill: $orangeCycle; }}
-  // &[data-cycle="aqua"] { .compass path {fill: $aquaCycle; }}
-  // &[data-cycle="pink"] { .compass path {fill: $pinkCycle; }}
-  // &[data-cycle="fuchsia"] { .compass path {fill: $fuchsiaCycle; }}
-  // &[data-cycle="lime"] { .compass path {fill: $limeCycle; }}
 
   .book {
     position: absolute;
@@ -121,10 +110,7 @@
       &:before, &:after {
         content: '';
         position: absolute;
-        opacity: 0.2;
         z-index: 1;
-        background: red;
-
       }
 
       &:hover {

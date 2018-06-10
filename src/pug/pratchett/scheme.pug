@@ -6,12 +6,12 @@ mixin pratchettScheme
     +reversiveSmallWave(1)
     +reversiveBigWave(3)
 
-    -var stars = [16,16,9,16,16,16,16];
-
-    -var i = 0
-    while i < 7
-      svg.star(data-star=(i+1) width=stars[i] height=stars[i]): use(xlink:href="#star-icon")
-      -i++
+    .pratchett-scheme__stars
+      -var stars = [16,16,9,16,16,16,16];
+      -var i = 0
+      while i < 7
+        svg.sky-star(data-star=(i+1) width=stars[i] height=stars[i]): use(xlink:href="#star-icon")
+        -i++
 
     
     .cycles

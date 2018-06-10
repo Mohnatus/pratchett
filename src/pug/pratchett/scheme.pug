@@ -1,10 +1,11 @@
 mixin pratchettScheme
   include icons.pug
   .pratchett-scheme
-    +bigWave(1)
-    +bigWave(2)
-    +reversiveSmallWave(1)
-    +reversiveBigWave(3)
+    .pratchett-scheme__waves
+      +bigWave(1)
+      +bigWave(2)
+      +reversiveSmallWave(1)
+      +reversiveBigWave(3)
 
     .pratchett-scheme__stars
       -var stars = [16,16,9,16,16,16,16];

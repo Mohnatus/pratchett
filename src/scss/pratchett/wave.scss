@@ -1,4 +1,6 @@
 
+
+
 .big-wave, .small-wave {
   position: absolute;
   z-index: 0;
@@ -8,7 +10,16 @@
   }
 }
 
-.pratchett-header {
+.pratchett-header__waves,
+.pratchett-scheme__waves {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%; transform: translateX(-50%);
+  min-width: 1920px;
+  width: 100%;
+}
+
+.pratchett-header__waves {
   .big-wave {
     &_1 {
       top: 187px; left: 0%;
@@ -30,7 +41,7 @@
   }
 }
 
-.pratchett-scheme {
+.pratchett-scheme__waves {
   .big-wave_1 {
     top: 96px; left: 0;
   }

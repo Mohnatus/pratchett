@@ -1,11 +1,13 @@
 mixin pratchettHeader
   include compass.pug
   include icons.pug
+  include title.pug
   .pratchett-header
-    +bigWave(1)
-    +smallWave(1)
-    +reversiveSmallWave(2)
-    +reversiveBigWave(2)
+    .pratchett-header__waves
+      +bigWave(1)
+      +smallWave(1)
+      +reversiveSmallWave(2)
+      +reversiveBigWave(2)
 
     .pratchett-header__stars
       -var stars = [ 16, 16, 9, 9, 16, 9, 16, 9, 16, 16, 16, 16 ];
@@ -15,7 +17,8 @@ mixin pratchettHeader
         -i++
 
     h1.pratchett-header__strip.text-center
-      img(src=imgUrl+'title.svg' width="1190" height="216")
+      //img(src=imgUrl+'title.svg' width="1190" height="216")
+      +pratchettStrip
     .pratchett-header__world.text-center
       .turtle
 

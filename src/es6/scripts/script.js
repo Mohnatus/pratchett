@@ -2,6 +2,7 @@ import Map from '../modules/map.js';
 //import data from '../modules/testData.js';
 import card from '../modules/card.js';
 import Label from '../modules/cycles.js';
+import scroll from '../modules/smoothScroll.js';
 
 var data = window.pratchettData;
 
@@ -54,7 +55,8 @@ window.addEventListener('DOMContentLoaded', function() {
     card.init({
       element: document.querySelector('.pratchett-card'),
       bookCard: '.book-card',
-      controls: '[data-slider="pratchett"]'
+      controls: '[data-slider="pratchett"]',
+      seria: '.seria'
     });
   
     cycleItems.forEach((item, ind) => {
@@ -63,11 +65,25 @@ window.addEventListener('DOMContentLoaded', function() {
         let el = item;
         let cycle = el.dataset.cycle;
         let index = el.dataset.index - 1;
-        let slides = data[cycle];
-        card.update(slides, cycle, index);
+        let slides = data[cycle].items;
+        let cycleName = data[cycle].name;
+        card.update({
+          slides: slides, 
+          cycle: cycle, 
+          cycleName: cycleName,
+          index: index
+        });
       });
         
     })
   /* end Book card */
+
+  /* Compass scroll */
+  let compass = document.querySelector('.compass');
+  let schemeID = 'scheme-scroll';
+  compass.addEventListener('click', function() {
+    scroll(schemeID, 'slow');
+  })
+  /* end Compass scroll */
 });
 

@@ -85,7 +85,7 @@ bookCard.setAuthor = function(author) {
 
 bookCard.setRating = function(rating, votes) {
   rating = rating || 0;
-  this.rating.setAttribute('data-rating', Math.ceil(rating));
+  votes = votes || 0;
   this.ratingCount.textContent = rating;
   this.ratingVote.textContent = votes;
 };
@@ -95,7 +95,7 @@ bookCard.setYear = function(year) {
     this.yearBlock.style.display = "none";
   } else {
     this.year.textContent = year;
-    this.yearBlock.style.display = "block";
+    this.yearBlock.style.display = "inline";
   }
 };
 
@@ -104,7 +104,7 @@ bookCard.setPublisher = function(publisher) {
     this.publisherBlock.style.display = "none";
   } else {
     this.publisher.textContent = publisher;
-    this.publisherBlock.style.display = "block";
+    this.publisherBlock.style.display = "inline";
   }
 };
 
@@ -119,12 +119,16 @@ bookCard.setId = function(id) {
 bookCard.setButton = function(data) {
   this.buttonBlock.innerHTML = data.button;
   let button = this.buttonBlock.querySelector('button');
+  if (!button) return;
   button.addEventListener('click', (e) => {
-    if (button.getAttribute('data-status') == 'buy') {
+    let status = button.getAttribute('data-status');
+    if (status == 'buy') {
       let id = button.getAttribute('data-product');
       window.add2Basket(button, id, () => {
         data.button = this.buttonBlock.innerHTML;
       });
+    } else if (status == 'in-basket') {
+      window.location.href = '/personal/basket.php';
     }
   }) 
 };

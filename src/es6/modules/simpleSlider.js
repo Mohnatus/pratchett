@@ -9,6 +9,7 @@ let slider = {
   slides: [],
 
   viewed: 5,
+
   center: null,
   leftDiff: null,
   leftLimit: null,
@@ -45,8 +46,9 @@ slider.init = function(config) {
   this.$slidesContainer = this.$.querySelector(slider.selectors.slides);
 
   this.viewed = config.viewed || this.viewed;
-  this.center = config.center || Math.ceil(this.viewed / 2);
-  this.leftDiff = this.viewed - this.center;
+  this.center = config.center;
+  this.leftDiff = this.center - 1;
+  
 
   this.onChange = config.onChange;
 
@@ -116,9 +118,10 @@ slider.setCenterSlide = function() {
 };
 
 slider.countLeftSlide = function(centerIndex) {
+  console.log('need center', centerIndex, 'left diff', this.leftDiff)
   if (!centerIndex || centerIndex < 0) centerIndex = 0;
 
-  let leftSlideIndex = 0;
+  let leftSlideIndex = this.isCenter ? 0 : centerIndex;
 
   if (centerIndex > this.leftDiff) leftSlideIndex = centerIndex - this.leftDiff;
   if (leftSlideIndex > this.leftLimit) leftSlideIndex = this.leftLimit;

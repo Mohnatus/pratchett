@@ -5,6 +5,8 @@ mixin pratchettSlider
       +bookCard
       
       .pratchett-card__controls
+        div Другие книги #[span.seria]
+          
         .controls(data-slider="pratchett")
           div(data-prev)
             <svg width="22" height="45" viewBox="0 0 22 45" fill="none" xmlns="http://www.w3.org/2000/svg" >
@@ -26,25 +28,23 @@ mixin bookCard
     a.book-card__img(href="")
       img(src="" alt="")
     .book-card__info
-      p
-        a.book-card__title(href="")
-      p.book-card__author
-      .book-rating(data-rating="")
-        .book-rating__title Рейтинг: #[b.count]
-        .book-rating__vote (#[span.vote])
-        .book-rating__stars
+      a.book-card__title(href="")
+      .book-card__author
+      .book-card__data
+        span.book-rating
           svg.book-rating__star: use(xlink:href="#star-icon")
-          svg.book-rating__star: use(xlink:href="#star-icon")
-          svg.book-rating__star: use(xlink:href="#star-icon")
-          svg.book-rating__star: use(xlink:href="#star-icon")
-          svg.book-rating__star: use(xlink:href="#star-icon")
-          svg.book-rating__star: use(xlink:href="#star-icon")
-          svg.book-rating__star: use(xlink:href="#star-icon")
-          svg.book-rating__star: use(xlink:href="#star-icon")
-          svg.book-rating__star: use(xlink:href="#star-icon")
-          svg.book-rating__star: use(xlink:href="#star-icon")
-      p.book-card__year Год издания: #[span.year]
-      p.book-card__publisher Издательство: #[span.publisher]
-      p.book-card__price Цена: #[b #[span.price]&#8399;]
-      p.book-card__annotation
-      .book-card__button
+          span.count 0
+          |&nbsp;(
+          span.vote 0
+          |)&nbsp;
+        span.book-card__publisher 
+          span.book-card__data-title Издательство&nbsp;
+          span.publisher 
+          |&nbsp;
+        span.book-card__year 
+          span.book-card__data-title Год издания:&nbsp;
+          span.year
+      .book-card__annotation
+      .book-card__footer
+        .book-card__price #[b #[span.price] &#8399;]
+        .book-card__button

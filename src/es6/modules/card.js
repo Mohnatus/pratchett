@@ -5,6 +5,7 @@ let card = {
   $: null,
   close: null,
   controls: null,
+  seria: null,
 
   bookCard: bookCard,
   controlsSlider: slider,
@@ -31,25 +32,34 @@ card.init = function(config) {
     element: this.$bookCard
   });
 
+  this.seria = this.$.querySelector(config.seria);
+
   let controls = this.$.querySelector(config.controls);
   
   this.controls = controls.querySelector('[data-slides]');
   this.controlsSlider.init({
+    viewed: 4,
+    center: 1,
     element: controls,
     onChange: (index) => this.controlChange(index)
   });
 };
 
-card.update = function(slides, cycle, index) {
+card.update = function(data) {
+  this.setSeria(data.cycleName);
   this.controlsSlider.moveOff();
-  if (!this.sets[cycle]) {
-    this.createSet(slides, cycle);
+  if (!this.sets[data.cycle]) {
+    this.createSet(data.slides, data.cycle);
   }
-  this.restoreSet(cycle);
-  this.activateElement(cycle, index);
+  this.restoreSet(data.cycle);
+  this.activateElement(data.cycle, data.index);
   this.showCard();
   this.controlsSlider.moveOn();
 };
+
+card.setSeria = function(seria) {
+  this.seria.textContent = seria ? `серии «${seria}»` : "Терри Пратчетта";
+}
 
 card.createSet = function(data, setName) {
   let controlsData = this.createControls(data);
@@ -67,7 +77,7 @@ card.createControls = function(data) {
 
   for (let i = 0, count = data.length; i < count; i++) {
     let itemData = data[i];
-    let control = this.createControl(itemData.img);
+    let control = this.createControl(itemData);
     items.push(control);
     fr.appendChild(control);
   }
@@ -78,11 +88,17 @@ card.createControls = function(data) {
   }
 };
 
-card.createControl = function(img) {
+card.createControl = function(data) {
   let el = document.createElement('div');
   el.classList.add(this.controlClass);
-  let $img = `<img src=${img} />`;
-  el.innerHTML = $img;
+  let img = document.createElement('div');
+  img.classList.add(this.controlClass + '__img');
+  img.innerHTML = `<img src=${data.img}>`;
+  let title = document.createElement('div');
+  title.innerHTML = data.title;
+  title.classList.add(this.controlClass + '__title');
+  el.appendChild(img);
+  el.appendChild(title);
   return el;
 };
 

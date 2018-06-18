@@ -1,7 +1,7 @@
-$xSliderWidth: 660px;
-$xSliderPaddingLeft: 20px;
-$xSliderPaddingRight: 20px;
-$xSliderPaddingTop: 30px;
+$xSliderWidth: 840px;
+$xSliderPaddingLeft: 30px;
+$xSliderPaddingRight: 30px;
+$xSliderPaddingTop: 35px;
 $xSliderPaddingBottom: 35px;
 $xSliderBorderRadius: 20px;
 $xSliderBackground: white;
@@ -13,7 +13,7 @@ $xSliderArrowOffset: 20px;
 $xSliderArrowFontSize: 40px;
 $xSliderArrowFontWeight: bold;
 
-$xSliderViewportHeight: 270px;
+$xSliderViewportHeight: 200px; 
 
 $xSliderControlsHeight: 150px;
 $xSliderControlsMarginTop: 25px;
@@ -56,17 +56,15 @@ $xSliderControlsMarginTop: 25px;
 
   &__book {
     width: 100%;
-    height: $xSliderViewportHeight;
+    min-height: $xSliderViewportHeight;
     overflow: hidden;
     position: relative;
   }
 
   &__controls {
     width: 100%;
-    height: $xSliderControlsHeight;
+    // height: $xSliderControlsHeight;
     margin-top: $xSliderControlsMarginTop;
-
-    border-top: 1px solid rgba(0, 0, 0, 0.2);
   }
 
 

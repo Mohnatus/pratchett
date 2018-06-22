@@ -3,7 +3,7 @@
 .book-card {
   font-size: 14px;
   display: flex;
-  line-height: 1.2;
+  line-height: 18px;
   padding: 20px;
 
   &__img {
@@ -61,7 +61,7 @@
   }
 
   &__annotation {
-    max-height: 3.6em;
+    max-height: 54px;
     overflow: hidden;
     margin-bottom: 1em;
   }
@@ -75,6 +75,7 @@
   &__price {
     margin-right: 20px;
     min-width: 50px;
+    font-size: 16px;
   }
 
   &__button {

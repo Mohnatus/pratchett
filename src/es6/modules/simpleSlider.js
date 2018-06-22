@@ -19,6 +19,8 @@ let slider = {
   currentLeftIndex: null,
 
   activeAttr: 'data-active',
+  slideAttr: 'data-slide',
+  mainAttr: '',
 
   onChange: null,
 
@@ -30,7 +32,7 @@ let slider = {
 slider.selectors = {
   prev: '[data-prev]',
   next: '[data-next]',
-  slides: '[data-slides]',
+  slides: '[data-slides]'
 }
 
 slider.init = function(config) {
@@ -49,6 +51,7 @@ slider.init = function(config) {
   this.center = config.center;
   this.leftDiff = this.center - 1;
   
+  this.mainAttr = config.attr;
 
   this.onChange = config.onChange;
 
@@ -71,23 +74,40 @@ slider.update = function() {
 
 slider.handleSlides = function(slides) {
   slides.forEach((slide, index) => {
-    slide.setAttribute('data-slide', index);
+    slide.setAttribute(this.slideAttr, index);
+    slide.querySelector('[data-index]').setAttribute('data-index', index + 1);
     slide.addEventListener('click', () => this.handleClick(index));
+    let attr = slide.dataset;
+    console.log(attr)
     this.slides.push({
       $: slide,
-      index: index
+      index: index,
+      data: attr
     });
+
   });
   this.leftLimit = this.slides.length - this.viewed;
 }
 
-slider.setActive = function(index) {
+slider.setActive = function(index, attr) {
   index = index || 0;
   if (this.currentSlide) {
     this.currentSlide.removeAttribute(this.activeAttr);
   }
-  this.currentSlide = this.slides[index].$;
+
+  let slide;
+
+  if (attr) {
+    let $slide = this.$slidesContainer.querySelector(`[data-${attr}="${index}"]`);
+    console.log($slide)
+    slide = this.slides[$slide.getAttribute(this.slideAttr)].$;
+  } else {
+    slide = this.slides[index].$;
+  }
+
+  this.currentSlide = slide;
   this.currentSlideIndex = index;
+
   this.currentSlide.setAttribute(this.activeAttr, '');
 
   this.setCenterSlide();
@@ -118,7 +138,6 @@ slider.setCenterSlide = function() {
 };
 
 slider.countLeftSlide = function(centerIndex) {
-  console.log('need center', centerIndex, 'left diff', this.leftDiff)
   if (!centerIndex || centerIndex < 0) centerIndex = 0;
 
   let leftSlideIndex = this.isCenter ? 0 : centerIndex;
@@ -145,8 +164,9 @@ slider.toNextSlide = function() {
 };
 
 slider.toSlide = function(index) {
+  console.log(this.slides[index])
   this.setActive(index);
-  this.onChange(index);
+  this.onChange(this.slides[index].data);
 }
 
 slider.handleClick = function(index) {
@@ -161,22 +181,26 @@ slider.resetSlider = function() {
 };
 
 slider.hidePrevControl = function() {
-  this.prev.style.visibility = "hidden";
+  //this.prev.style.visibility = "hidden";
+  this.prev.setAttribute('data-inactive', '');
   this.hidePrev = true;
 };
 
 slider.hideNextControl = function() {
-  this.next.style.visibility = "hidden";
+  //this.next.style.visibility = "hidden";
+  this.next.setAttribute('data-inactive', '');
   this.hideNext = true;
 };
 
 slider.showPrevControl = function() {
-  this.prev.style.visibility = "visible";
+  //this.prev.style.visibility = "visible";
+  this.prev.removeAttribute('data-inactive');
   this.hidePrev = false;
 };
 
 slider.showNextControl = function() {
-  this.next.style.visibility = "visible";
+  //this.next.style.visibility = "visible";
+  this.next.removeAttribute('data-inactive');
   this.hideNext = false;
 };
 

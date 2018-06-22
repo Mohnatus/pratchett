@@ -5,30 +5,30 @@ mixin pratchettSlider
       +bookCard
       
       .pratchett-card__controls
-        div Другие книги #[span.seria]
+        div.pratchett-card__seria Другие книги #[span.seria]
           
         .controls(data-slider="pratchett")
           div(data-prev)
-            <svg width="22" height="45" viewBox="0 0 22 45" fill="none" xmlns="http://www.w3.org/2000/svg" >
-              <line y1="-0.5" x2="30.8901" y2="-0.5" transform="matrix(-0.620717 -0.784034 0.428706 -0.903444 19.7627 44)" />
-              <line y1="-0.5" x2="28.8495" y2="-0.5" transform="matrix(-0.727917 0.685666 -0.333601 -0.942714 21 0)" />
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="60px" height="60px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+              <path d="M15.41,16.59L10.83,12l4.58-4.59L14,6l-6,6l6,6L15.41,16.59z"/>
+              <path fill="none" d="M0,0h24v24H0V0z"/>
             </svg>
-          
+
           div(data-viewport)
             div(data-slides)
           div(data-next)
-            <svg width="22" height="45" viewBox="0 0 22 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <line y1="-0.5" x2="30.8901" y2="-0.5" transform="matrix(0.620717 0.784034 -0.428706 0.903444 2.2373 1)"/>
-              <line y1="-0.5" x2="28.8495" y2="-0.5" transform="matrix(0.727917 -0.685666 0.333601 0.942714 1 45)" />
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="60px" height="60px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+              <path d="M8.59,16.59L13.17,12L8.59,7.41L10,6l6,6l-6,6L8.59,16.59z"/>
+              <path fill="none" d="M0,0h24v24H0V0z"/>
             </svg>
 
 mixin bookCard
   .pratchett-card__book.book-card
     
-    a.book-card__img(href="")
+    a.book-card__img(href="" data-product-link)
       img(src="" alt="")
     .book-card__info
-      a.book-card__title(href="")
+      a.book-card__title(href="" data-product-link data-title)
       .book-card__author
       .book-card__data
         span.book-rating
@@ -42,7 +42,7 @@ mixin bookCard
           span.publisher 
           |&nbsp;
         span.book-card__year 
-          span.book-card__data-title Год издания:&nbsp;
+          span.book-card__data-title Год издания&nbsp;
           span.year
       .book-card__annotation
       .book-card__footer

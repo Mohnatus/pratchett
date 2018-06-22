@@ -3,14 +3,16 @@ import Map from '../modules/map.js';
 import card from '../modules/card.js';
 import Label from '../modules/cycles.js';
 import scroll from '../modules/smoothScroll.js';
+import ecommerce from '../modules/ecommerce.js';
 
 var data = window.pratchettData;
 
-window.add2Basket = function add2Basket(btn, id, callback) {
+window.add2Basket = function add2Basket(btn, callback) {
   btn.setAttribute('data-status', 'in-basket');
   btn.textContent ='В корзине';
   callback ? callback() : null;
 }
+
 
 window.addEventListener('DOMContentLoaded', function() {
   Map('.pratchett-map');
@@ -34,29 +36,12 @@ window.addEventListener('DOMContentLoaded', function() {
   /* end Label */
 
   /* Book card */
-    let createBlock = (el, className, attrs, content) => {
-      let block = document.createElement(el);
-      if (className) {
-        block.classList.add(className);
-      }
-      
-      if (attrs) {
-        for (let attr in attrs) {
-          block.setAttribute(attr, attrs[attr] || '');
-        }
-      }
-      if (content) {
-        if (typeof(content) == "string") block.innerHTML = content;
-        else block.appendChild(content);
-      }
-      return block;
-    }
-
     card.init({
       element: document.querySelector('.pratchett-card'),
       bookCard: '.book-card',
       controls: '[data-slider="pratchett"]',
-      seria: '.seria'
+      seria: '.seria',
+      tagText: ''
     });
   
     cycleItems.forEach((item, ind) => {

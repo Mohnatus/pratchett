@@ -1,7 +1,7 @@
 .controls {
   width: 100%;
-  height: 215px;
-  padding-top: 27px;
+  height: 240px;
+  padding-top: 30px;
   margin: auto;
   display: flex;
   justify-content: center;
@@ -11,11 +11,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    stroke: #B3B3B3;
+    //stroke: #B3B3B3;
+    fill: $firmBlueColor;
     cursor: pointer;
 
-    &:hover {
-      stroke: #666666;
+    &:not([data-inactive]):hover {
+      background: rgba(38, 169, 224, 0.05);
+    }
+
+    &[data-inactive] {
+      fill: rgba(0, 0, 0, 0.1);
     }
   }
 
@@ -49,32 +54,59 @@
 
 .pratchett-control {
   width: 150px;
-  height: 212px;
   text-align: center;
-  margin-right: 27px;
+  margin-right: 20px;
   flex-shrink: 0;
   flex-grow: 0;
   cursor: pointer;
+  user-select: none;
 
   &:last-of-type {
     margin-right: 0;
   }
 
+  &__title {
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    height: 60px;
+    padding: 0px 8px;
+  }
+  
+  .tag {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    white-space: nowrap;
+    line-height: 24px;
+    padding: 0 10px;
+    color: white;
+
+    &:after {
+      content: " #"attr(data-index);
+    }
+  }
+
   &__img {
     width: 150px;
     height: 150px;
-    margin-bottom: 12px;
+    position: relative;
     
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    user-select: none;
+    margin-bottom: 8px;
 
     img {
       max-width: 100%;
       max-height: 100%;
       filter: grayscale(100%);
-      opacity: 0.7;
+      opacity: 0.5;
+      transition: opacity 500ms;
     }
   }
 
@@ -85,4 +117,8 @@
     }
     
   }
+}
+
+.pratchett-card[data-seria] .tag {
+  display: block;
 }

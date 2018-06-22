@@ -16,7 +16,7 @@ $xSliderArrowFontWeight: bold;
 $xSliderViewportHeight: 200px; 
 
 $xSliderControlsHeight: 150px;
-$xSliderControlsMarginTop: 25px;
+$xSliderControlsMarginTop: 20px;
 
 
 .pratchett-card {
@@ -30,8 +30,7 @@ $xSliderControlsMarginTop: 25px;
     left: 50%; top: 50%;
     z-index: 50;
     transform: translate(-50%, -50%);
-    min-width: $xSliderWidth;
-    max-width: 1000px;
+    width: $xSliderWidth;
     padding: $xSliderPaddingTop $xSliderPaddingRight $xSliderPaddingBottom $xSliderPaddingLeft;
     border-radius: $xSliderBorderRadius;
     background: $xSliderBackground;
@@ -67,5 +66,8 @@ $xSliderControlsMarginTop: 25px;
     margin-top: $xSliderControlsMarginTop;
   }
 
-
+  &__seria {
+    padding: 0 60px;
+    user-select: none;
+  }
 }

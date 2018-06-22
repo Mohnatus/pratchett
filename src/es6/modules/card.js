@@ -12,8 +12,12 @@ let card = {
   sets: {},
   currentSet: null,
 
+  tagText: '',
+
   showAttr: 'data-shown',
-  controlClass: 'pratchett-control'
+  controlClass: 'pratchett-control',
+  controlBookAttr: 'view',
+  controlVarAttr: 'var'
 };
 
 card.init = function(config) {
@@ -33,6 +37,7 @@ card.init = function(config) {
   });
 
   this.seria = this.$.querySelector(config.seria);
+  this.tagText = config.tagText || this.tagText;
 
   let controls = this.$.querySelector(config.controls);
   
@@ -41,24 +46,28 @@ card.init = function(config) {
     viewed: 4,
     center: 1,
     element: controls,
-    onChange: (index) => this.controlChange(index)
+    onChange: (data) => this.controlChange(data),
+    attr: this.controlBookAttr
   });
 };
 
 card.update = function(data) {
   this.setSeria(data.cycleName);
+  this.$.setAttribute('data-cycle', data.cycle);
   this.controlsSlider.moveOff();
   if (!this.sets[data.cycle]) {
     this.createSet(data.slides, data.cycle);
   }
   this.restoreSet(data.cycle);
-  this.activateElement(data.cycle, data.index);
+  this.activateElement(data.cycle, data.index, 0);
   this.showCard();
   this.controlsSlider.moveOn();
 };
 
 card.setSeria = function(seria) {
-  this.seria.textContent = seria ? `серии «${seria}»` : "Терри Пратчетта";
+  if (seria) this.$.setAttribute('data-seria', seria);
+  else this.$.removeAttribute('data-seria');
+  this.seria.textContent = seria ? `цикла «${seria}»` : "Терри Пратчетта";
 }
 
 card.createSet = function(data, setName) {
@@ -75,11 +84,15 @@ card.createControls = function(data) {
   let fr = document.createDocumentFragment();
   let items = []; 
 
+  console.log('controls', data);
+
   for (let i = 0, count = data.length; i < count; i++) {
-    let itemData = data[i];
-    let control = this.createControl(itemData);
-    items.push(control);
-    fr.appendChild(control);
+    let els = data[i];
+    els.forEach((el, ind) => {
+      let control = this.createControl(el, i, ind);
+      items.push(control);
+      fr.appendChild(control);
+    })
   }
 
   return {
@@ -88,12 +101,14 @@ card.createControls = function(data) {
   }
 };
 
-card.createControl = function(data) {
+card.createControl = function(data, i, ind) {
   let el = document.createElement('div');
   el.classList.add(this.controlClass);
+  el.setAttribute("data-" + this.controlBookAttr, i);
+  el.setAttribute("data-" + this.controlVarAttr, ind);
   let img = document.createElement('div');
   img.classList.add(this.controlClass + '__img');
-  img.innerHTML = `<img src=${data.img}>`;
+  img.innerHTML = `<img src=${data.img}><div class="tag" data-index data-cycle-bg>${this.tagText}</div>`;
   let title = document.createElement('div');
   title.innerHTML = data.title;
   title.classList.add(this.controlClass + '__title');
@@ -115,17 +130,20 @@ card.setControls = function(html) {
   this.controlsSlider.update();
 };
 
-card.controlChange = function(index) {
-  this.updateCard(this.currentSet, index);
+card.controlChange = function(data) {
+  console.log('card', data)
+  this.updateCard(this.currentSet, data[this.controlBookAttr], data[this.controlVarAttr]);
 }
 
-card.activateElement = function(cycle, index) {
-  this.updateCard(cycle, index);
-  this.controlsSlider.setActive(index);
+card.activateElement = function(cycle, index, book) {
+  this.updateCard(cycle, index, book);
+  this.controlsSlider.setActive(index, this.controlAttr);
 }
 
-card.updateCard = function(cycle, index) {
-  let data = this.sets[cycle].items[index];
+card.updateCard = function(cycle, index, book) {
+  console.log('update card', index, book)
+  book = book || 0;
+  let data = this.sets[cycle].items[index][book];
   this.bookCard.setData(data);
 };
 

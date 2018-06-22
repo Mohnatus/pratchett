@@ -20,6 +20,14 @@ $cyclesColors: (
   lime: $limeCycle
 );
 
+@each $cycle, $color in $cyclesColors {
+  [data-cycle="#{$cycle}"] {
+    [data-cycle-bg] {
+      background-color: transparentize($color, 0.2);
+    }
+  }
+}
+
 $flagsPositions: (
   blue: (
     1: (325px, 17px),

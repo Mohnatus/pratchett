@@ -1,3 +1,5 @@
+import ecommerce from './ecommerce.js';
+
 let bookCard = {
   inited: false,
 
@@ -59,8 +61,24 @@ bookCard.init = function(config) {
   this.year = this.yearBlock.querySelector(bookCard.selectors.year);
   this.description = this.$.querySelector(bookCard.selectors.description);
 
+  this.link.addEventListener('click', this.clickHandler.bind(this));
+  this.title.addEventListener('click', this.clickHandler.bind(this));
+
   this.inited = true;
 }
+
+bookCard.clickHandler = function(e) {
+  console.log(this.link)
+  e.preventDefault();
+  ecommerce.link({
+    id: this.$.getAttribute('data-element'),
+    name: this.title.innerHTML,
+    price: this.price.textContent,
+    callback: () => {
+      window.location.href = this.link.href;
+    }
+  });
+};
 
 bookCard.setImage = function(img) {
   this.img.setAttribute('src', img);
@@ -124,8 +142,10 @@ bookCard.setButton = function(data) {
     let status = button.getAttribute('data-status');
     if (status == 'buy') {
       let id = button.getAttribute('data-product');
-      window.add2Basket(button, id, () => {
+      window.add2Basket(button, () => {
         data.button = this.buttonBlock.innerHTML;
+        ecommerce.buy({id: data.id, name: data.title, price: data.price});
+        VK.Retargeting.Event('button_buy');
       });
     } else if (status == 'in-basket') {
       window.location.href = '/personal/basket.php';
